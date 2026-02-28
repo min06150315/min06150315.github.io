@@ -4,9 +4,9 @@ function Header() {
   return (
     <>
       <div>Header</div>
-      <Link to="Home">Home</Link>
-      <Link to="Blog">Blog</Link>
-      <Link to="Project">Project</Link>
+      <Link to="/">Home</Link>
+      <Link to="/Blog">Blog</Link>
+      <Link to="/Project">Project</Link>
     </>
   );
 }
