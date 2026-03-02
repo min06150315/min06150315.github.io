@@ -15,7 +15,7 @@ export const router = createBrowserRouter([
       <Suspense fallback={<Loading />}>
         <MainLayout />
       </Suspense>
-    ), // 공통 헤더/푸터
+    ),
     errorElement: <NotFound />,
     children: [
       {
@@ -25,9 +25,6 @@ export const router = createBrowserRouter([
       {
         path: 'blog',
         element: <Blog />,
-        loader: async () => {
-          return null;
-        },
       },
       {
         path: 'project',
