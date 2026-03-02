@@ -1,6 +1,24 @@
-import { QueryClient } from '@tanstack/react-query';
+import { MutationCache, QueryCache, QueryClient } from '@tanstack/react-query';
 
 const queryClient = new QueryClient({
+  // 전역 조회 에러 핸들링
+  queryCache: new QueryCache({
+    onError: (error, query) => {
+      if (query.meta?.errorMessage) {
+        console.error(query.meta.errorMessage);
+      } else {
+        alert(`데이터 로드 실패: ${error.message}`);
+      }
+    },
+  }),
+
+  // 전역 수정/삭제 에러 핸들링
+  mutationCache: new MutationCache({
+    onError: (error) => {
+      alert(`요청 처리 중 오류가 발생했습니다: ${error.message}`);
+    },
+  }),
+
   defaultOptions: {
     queries: {
       // 5분 동안 캐시 유효
