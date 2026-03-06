@@ -2,6 +2,9 @@
   --color-brand: #1da1f2;
   --color-success: #10b981;
   --color-error: #ef4444;
+  --color-base-black: #181818;
+  --color-base-white: #c5c5c5;
+  --color-hover-black: #222;
 
   --font-sans: 'Pretendard', sans-serif;
 }
