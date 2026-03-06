@@ -1,8 +1,12 @@
+import { PageHeader } from '@/components/ui/PageHeader';
+import { PAGE_CONTENT } from '@/constants/contents';
+
 function Home() {
+  const { title, contents } = PAGE_CONTENT.HOME;
+
   return (
     <div>
-      안녕하세요
-      <p>민경빈입니다.</p>
+      <PageHeader title={title} contents={contents} />
     </div>
   );
 }

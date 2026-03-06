@@ -1,12 +1,15 @@
+import { PageHeader } from '@/components/ui/PageHeader';
 import { BlogList } from '@/features/blog/components/BlogList';
+import { PAGE_CONTENT } from '@/constants/contents';
 
-function Blog() {
+export const Blog = () => {
+  const { title, contents } = PAGE_CONTENT.BLOG;
+
   return (
     <div>
-      <p>Blog</p>
+      <PageHeader title={title} contents={contents} />
       <BlogList />
     </div>
   );
 }
 
-export default Blog;
