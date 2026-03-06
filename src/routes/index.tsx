@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createHashRouter } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import MainLayout from '@/components/layout/MainLayout';
 import NotFound from '@/pages/NotFound';
@@ -8,7 +8,7 @@ import Loading from '@/components/ui/Loading';
 const Blog = lazy(() => import('@/pages/Blog'));
 const Project = lazy(() => import('@/pages/Project'));
 
-export const router = createBrowserRouter([
+export const router = createHashRouter([
   {
     path: '/',
     element: (
