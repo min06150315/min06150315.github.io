@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
+import { NavButton } from '@/components/ui';
 
-export const Header = () => {
+const Header = () => {
   return (
     <header className="sticky top-0 z-50 w-full backdrop-blur-md">
       <div className="max-w-5xl mx-auto h-16 px-4 flex items-center justify-between">
@@ -16,24 +17,11 @@ export const Header = () => {
         </Link>
 
         <nav className="flex items-center gap-x-4 text-sm font-medium">
-          <Link
-            to="/blog"
-            className="px-3 py-2 rounded-md hover:bg-hover-black transition-colors"
-          >
-            Blog
-          </Link>
-          <Link
-            to="/about"
-            className="px-3 py-2 rounded-md hover:bg-hover-black transition-colors"
-          >
-            About
-          </Link>
-          <Link
-            to="/search"
-            className="px-4 py-1.5 bg-blue-600 hover:bg-blue-500 text-white rounded-full transition-all"
-          >
+          <NavButton to="/blog">Blog</NavButton>
+          <NavButton to="/about">About</NavButton>
+          <NavButton to="/search" variant="primary">
             Search
-          </Link>
+          </NavButton>
           <div className="cursor-pointer px-2 py-2 rounded-md hover:bg-hover-black transition-colors">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -50,3 +38,5 @@ export const Header = () => {
     </header>
   );
 };
+
+export default Header;

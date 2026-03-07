@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-export const Footer = () => {
+const Footer = () => {
   return (
     <footer className="w-full border-t border-slate-500 py-12">
       <div className="max-w-5xl mx-auto px-4">
@@ -17,3 +17,5 @@ export const Footer = () => {
     </footer>
   );
 };
+
+export default Footer;

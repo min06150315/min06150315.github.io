@@ -1,6 +1,6 @@
 import { usePosts } from '@/hooks/queries/usePosts';
 
-export const BlogList = () => {
+const BlogList = () => {
   const { data: posts, isLoading, isError } = usePosts();
 
   if (isLoading) return <div>로딩</div>;
@@ -17,3 +17,5 @@ export const BlogList = () => {
     </div>
   );
 };
+
+export default BlogList;

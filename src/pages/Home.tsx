@@ -1,7 +1,7 @@
-import { PageHeader } from '@/components/ui/PageHeader';
+import { PageHeader } from '@/components/ui';
 import { PAGE_CONTENT } from '@/constants/contents';
 
-function Home() {
+const Home = () => {
   const { title, contents } = PAGE_CONTENT.HOME;
 
   return (
@@ -9,6 +9,6 @@ function Home() {
       <PageHeader title={title} contents={contents} />
     </div>
   );
-}
+};
 
 export default Home;

@@ -1,8 +1,8 @@
-import { PageHeader } from '@/components/ui/PageHeader';
-import { BlogList } from '@/features/blog/components/BlogList';
+import { PageHeader } from '@/components/ui';
+import BlogList from '@/features/blog/components/BlogList';
 import { PAGE_CONTENT } from '@/constants/contents';
 
-export const Blog = () => {
+const Blog = () => {
   const { title, contents } = PAGE_CONTENT.BLOG;
 
   return (
@@ -11,5 +11,6 @@ export const Blog = () => {
       <BlogList />
     </div>
   );
-}
+};
 
+export default Blog;

@@ -3,20 +3,19 @@ import { lazy, Suspense } from 'react';
 import MainLayout from '@/components/layout/MainLayout';
 import NotFound from '@/pages/NotFound';
 import Home from '@/pages/Home';
-import Loading from '@/components/ui/Loading';
+import { Loading } from '@/components/ui';
 
 const Blog = lazy(() => import('@/pages/Blog'));
-const Project = lazy(() => import('@/pages/Project'));
 
 export const router = createHashRouter([
   {
     path: '/',
-    element: (
-      <Suspense fallback={<Loading />}>
-        <MainLayout />
-      </Suspense>
+    element: <MainLayout />,
+    errorElement: (
+      <MainLayout>
+        <NotFound />
+      </MainLayout>
     ),
-    errorElement: <NotFound />,
     children: [
       {
         index: true,
@@ -24,11 +23,11 @@ export const router = createHashRouter([
       },
       {
         path: 'blog',
-        element: <Blog />,
-      },
-      {
-        path: 'project',
-        element: <Project />,
+        element: (
+          <Suspense fallback={<Loading />}>
+            <Blog />
+          </Suspense>
+        ),
       },
     ],
   },

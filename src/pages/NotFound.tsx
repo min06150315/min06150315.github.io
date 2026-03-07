@@ -1,7 +1,7 @@
-import { PageHeader } from '@/components/ui/PageHeader';
+import { PageHeader } from '@/components/ui';
 import { PAGE_CONTENT } from '@/constants/contents';
 
-export const NotFound = () => {
+const NotFound = () => {
   const { title, contents } = PAGE_CONTENT.NOTFOUND;
 
   return (
@@ -9,5 +9,6 @@ export const NotFound = () => {
       <PageHeader title={title} contents={contents} />
     </div>
   );
-}
+};
 
+export default NotFound;
