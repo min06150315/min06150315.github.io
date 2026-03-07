@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import type { Post } from '@/types';
+import { formatDateLong } from '@/utils';
 
 interface PostItemProps {
   post: Post;
@@ -7,7 +8,7 @@ interface PostItemProps {
 
 // TODO: 제목 및 내용 길이 제한, 제한 한 만큼만 보여주기
 
-const PostItem = ({ post }: PostItemProps) => {
+const BlogItem = ({ post }: PostItemProps) => {
   return (
     <Link to={`/blog/${post.id}`}>
       <div className="group p-6 rounded-md hover:bg-hover-black transition-all">
@@ -15,9 +16,10 @@ const PostItem = ({ post }: PostItemProps) => {
         <p className="text-more-gray line-clamp-2 leading-relaxed">
           {post.content}
         </p>
+        <p className="text-sm">{formatDateLong(post.created_at)}</p>
       </div>
     </Link>
   );
 };
 
-export default PostItem;
+export default BlogItem;

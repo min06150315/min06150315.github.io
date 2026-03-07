@@ -19,6 +19,7 @@ export const getPostById = async (id: string | number): Promise<Post> => {
     .eq('id', id)
     .single();
 
+  console.log(data);
   if (error) throw new Error(error.message);
   return data as Post;
 };

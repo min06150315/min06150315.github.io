@@ -1,8 +1,8 @@
 import { usePosts } from '@/hooks/queries/usePosts';
 import { Loading } from '@/components/ui';
-import PostItem from './PostItem';
+import BlogItem from './BlogItem';
 
-const PostList = () => {
+const BlogList = () => {
   const { data: posts, isLoading, isError } = usePosts();
 
   // TODO: 게시물 스켈레톤 스크린 추가
@@ -15,12 +15,12 @@ const PostList = () => {
   }
 
   return (
-    <div className='space-y-6 mt-8'>
+    <div className="space-y-6 mt-8">
       {posts?.map((post) => (
-        <PostItem key={post.id} post={post} />
+        <BlogItem key={post.id} post={post} />
       ))}
     </div>
   );
 };
 
-export default PostList;
+export default BlogList;
