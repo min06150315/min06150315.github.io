@@ -1,5 +1,5 @@
 import { PageHeader } from '@/components/ui';
-import BlogList from '@/features/blog/components/BlogList';
+import PostList from '@/features/blog/components/PostList';
 import { PAGE_CONTENT } from '@/constants/contents';
 
 const Blog = () => {
@@ -8,7 +8,7 @@ const Blog = () => {
   return (
     <div>
       <PageHeader title={title} contents={contents} />
-      <BlogList />
+      <PostList />
     </div>
   );
 };
