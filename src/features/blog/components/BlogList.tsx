@@ -1,4 +1,4 @@
-import { usePosts } from '@/hooks/queries/usePosts';
+import { usePosts } from '@/hooks/queries/usePost';
 import { Loading } from '@/components/ui';
 import BlogItem from './BlogItem';
 
@@ -13,6 +13,7 @@ const BlogList = () => {
   if (!posts || posts.length == 0) {
     console.log('게시물이 없습니다.');
   }
+  // TODO: 무한 스크롤 구현
 
   return (
     <div className="space-y-6 mt-8">

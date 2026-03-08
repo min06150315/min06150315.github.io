@@ -1,5 +1,5 @@
 import { Loading } from '@/components/ui';
-import { usePostDetail } from '@/hooks/queries/usePosts';
+import { usePostDetail } from '@/hooks/queries/usePost';
 import { useParams } from 'react-router-dom';
 import { formatDateLong } from '@/utils';
 
