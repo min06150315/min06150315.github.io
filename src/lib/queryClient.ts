@@ -8,6 +8,7 @@ const queryClient = new QueryClient({
         console.error(query.meta.errorMessage);
       } else {
         alert(`데이터 로드 실패: ${error.message}`);
+        console.log(error)
       }
     },
   }),

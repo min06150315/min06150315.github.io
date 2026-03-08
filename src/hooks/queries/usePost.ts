@@ -19,6 +19,7 @@ export const usePostDetail = (postId: string | number) => {
     queryKey: ['posts', postId],
     queryFn: () => getPostById(postId),
     enabled: !!postId,
+    retry: false,
   });
 };
 
@@ -55,8 +56,11 @@ export const useDeletePost = () => {
 
   return useMutation({
     mutationFn: deletePost,
-    onSuccess: () => {
+    onSuccess: (_, postId) => {
       queryClient.invalidateQueries({ queryKey: ['posts'] });
+
+      queryClient.removeQueries({ queryKey: ['posts', String(postId)] });
+      queryClient.removeQueries({ queryKey: ['posts', Number(postId)] });
       alert('Deleted');
       navigate('/blog');
     },
