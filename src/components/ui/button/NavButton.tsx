@@ -1,18 +1,23 @@
 import type { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
+import { cn } from '@/lib/utils';
 
 interface NavButtonProps {
+  children: ReactNode;
   to?: string;
   onClick?: () => void;
-  children: ReactNode;
+  type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
   variant?: 'black' | 'primary';
   className?: string;
 }
 
 export const NavButton = ({
+  children,
   to,
   onClick,
-  children,
+  type = 'button',
+  disabled,
   variant = 'black',
   className = '',
 }: NavButtonProps) => {
@@ -21,10 +26,10 @@ export const NavButton = ({
   const variants = {
     black: 'hover:bg-hover-black',
     primary:
-      'px-4 py-1.5 bg-blue-600 hover:bg-blue:500 text-white rounded-full transition-all',
+      'px-4 py-1.5 bg-primary hover:bg-primary-hover text-white transition-all',
   };
 
-  const combinedClassName = `${baseStyles} ${variants[variant]} ${className}`;
+  const combinedClassName = cn(baseStyles, variants[variant], className);
 
   if (to) {
     return (
@@ -35,7 +40,12 @@ export const NavButton = ({
   }
 
   return (
-    <button onClick={onClick} className={combinedClassName}>
+    <button
+      type={type}
+      onClick={onClick}
+      disabled={disabled}
+      className={combinedClassName}
+    >
       {children}
     </button>
   );

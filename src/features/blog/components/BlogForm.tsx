@@ -3,6 +3,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import type { Post } from '@/types';
 import { useEffect } from 'react';
+import { NavButton } from '@/components/ui';
 
 const blogSchema = z.object({
   title: z.string().min(2, '제목은 최소 2글자 이상이어야 합니다.').max(50),
@@ -57,7 +58,7 @@ const BlogForm = ({ initialData, onSubmit, isLoading }: BlogFormProps) => {
         )}
       </div>
 
-      <div className="h-[1px] bg-slate-900" />
+      <div className="h-[1px] bg-base-gray" />
 
       <div>
         <textarea
@@ -71,13 +72,14 @@ const BlogForm = ({ initialData, onSubmit, isLoading }: BlogFormProps) => {
       </div>
 
       <div className="flex justify-end gap-x-3">
-        <button
+        <NavButton
           type="submit"
+          variant="primary"
           disabled={isLoading}
-          className="px-6 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-full transition-all disabled:opacity-50"
+          className="px-6 py-2 rounded-full disabled:opacity-50 cursor-pointer"
         >
-          {isLoading ? '저장 중...' : initialData ? '수정하기' : '출간하기'}
-        </button>
+          {isLoading ? '저장 중...' : initialData ? '수정하기' : '작성하기'}
+        </NavButton>
       </div>
     </form>
   );

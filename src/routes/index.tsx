@@ -6,6 +6,7 @@ import Home from '@/pages/Home';
 import { Loading } from '@/components/ui';
 import BlogDetail from '@/pages/BlogDetail';
 import BlogWrite from '@/pages/BlogWrite';
+import BlogEdit from '@/pages/BlogEdit';
 
 const Blog = lazy(() => import('@/pages/Blog'));
 
@@ -47,7 +48,7 @@ export const router = createHashRouter([
         path: 'blog/edit/:id',
         element: (
           <Suspense fallback={<Loading />}>
-            <Blog />
+            <BlogEdit />
           </Suspense>
         ),
       },
