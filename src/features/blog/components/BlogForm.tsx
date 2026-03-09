@@ -51,7 +51,7 @@ const BlogForm = ({ initialData, onSubmit, isLoading }: BlogFormProps) => {
           {...register('title')}
           type="text"
           placeholder="제목을 입력하세요"
-          className="w-full bg-transparent text-4xl font-bold border-none outline-none text-slate-100 placeholder:text-slate-600 "
+          className="w-full bg-transparent text-4xl font-bold border-none outline-none --color-base-light-gray placeholder:text-slate-600 "
         />
         {errors.title && (
           <p className="text-red-500 text-sm mt-2">{errors.title.message}</p>
@@ -64,7 +64,7 @@ const BlogForm = ({ initialData, onSubmit, isLoading }: BlogFormProps) => {
         <textarea
           {...register('content')}
           placeholder="내용을 입력하세요..."
-          className="w-full h-[500px] bg-transparent text-lg border-none outline-none text-slate-300 resize-none"
+          className="w-full h-[500px] bg-transparent text-lg border-none outline-none text-base-middle-gray resize-none"
         />
         {errors.content && (
           <p className="text-red-500 text-sm mt-1">{errors.content.message}</p>

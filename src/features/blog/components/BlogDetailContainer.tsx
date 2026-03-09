@@ -46,7 +46,7 @@ const BlogDetailContainer = () => {
           <NavButton
             to={`/blog/edit/${id}`}
             variant="black"
-            className="flex items-center gap-2 text-xs py-1.5 px-3 hover:bg-white/10"
+            className="flex items-center gap-2 text-xs py-1.5 px-3 hover:bg-edit-gray/10"
           >
             <Pencil size={14} />
             수정
@@ -64,7 +64,7 @@ const BlogDetailContainer = () => {
       </div>
 
       <header className="mb-10">
-        <h1 className="text-4xl font-bold text-slate-100 mb-4 leading-tight">
+        <h1 className="text-4xl font-bold text-base-light-gray mb-4 leading-tight">
           {post.title}
         </h1>
         <div className="flex items-center text-sm text-slate-500">
@@ -73,7 +73,7 @@ const BlogDetailContainer = () => {
       </header>
 
       {/* 본문 영역 */}
-      <div className="whitespace-pre-wrap prose prose-invert max-w-none text-slate-300 leading-relaxed text-lg">
+      <div className="whitespace-pre-wrap prose prose-invert max-w-none text-base-middle-gray leading-relaxed text-lg">
         <p className="mb-4">{post.content}</p>
       </div>
     </article>
