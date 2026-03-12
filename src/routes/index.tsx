@@ -7,6 +7,7 @@ import { Loading } from '@/components/ui';
 import BlogDetail from '@/pages/BlogDetail';
 import BlogWrite from '@/pages/BlogWrite';
 import BlogEdit from '@/pages/BlogEdit';
+import LoginPage from '@/pages/LoginPage';
 
 const Blog = lazy(() => import('@/pages/Blog'));
 
@@ -23,6 +24,10 @@ export const router = createHashRouter([
       {
         index: true,
         element: <Home />,
+      },
+      {
+        path: 'login',
+        element: <LoginPage />,
       },
       {
         path: 'blog',
