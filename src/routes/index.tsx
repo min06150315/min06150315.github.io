@@ -8,6 +8,8 @@ import BlogDetail from '@/pages/BlogDetail';
 import BlogWrite from '@/pages/BlogWrite';
 import BlogEdit from '@/pages/BlogEdit';
 import LoginPage from '@/pages/LoginPage';
+import { AdminDashboard } from '@/pages/AdminDashboard';
+import { AdminLayout } from '@/components/layout/AdminLayout';
 
 const Blog = lazy(() => import('@/pages/Blog'));
 
@@ -46,16 +48,27 @@ export const router = createHashRouter([
         ),
       },
       {
-        path: 'blog/:id',
-        element: <BlogDetail />,
-      },
-      {
         path: 'blog/edit/:id',
         element: (
           <Suspense fallback={<Loading />}>
             <BlogEdit />
           </Suspense>
         ),
+      },
+      {
+        path: 'blog/:id',
+        element: <BlogDetail />,
+      },
+
+      {
+        path: 'admin',
+        element: <AdminLayout />,
+        children: [
+          {
+            index: true,
+            element: <AdminDashboard />,
+          },
+        ],
       },
     ],
   },
