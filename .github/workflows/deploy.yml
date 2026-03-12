@@ -1,4 +1,4 @@
-name: Deploy to Github Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -13,29 +13,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout 🛎️
         uses: actions/checkout@v4
 
-      - name: Install pnpm
-        uses: pnpm/action-setup#v3
+      - name: Install pnpm 📦
+        uses: pnpm/action-setup@v3
         with:
-          version: 10
+          version: 9
 
-      - name: Setup Node
+      - name: Setup Node ⚙️
         uses: actions/setup-node@v4
         with:
-          node-path: 20
+          node-version: 20
           cache: 'pnpm'
 
-      - name: Install Dependencies
-        run: pnpm Install
+      - name: Install dependencies 🏗️
+        run: pnpm install
 
-      - name: build
+      - name: Build 🚀
         run: pnpm run build
         env:
           VITE_APP_BASE_URL: /
 
-      - name: Deploy
+      - name: Deploy 📂
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: dist
