@@ -1,0 +1,42 @@
+name: Deploy to Github Pages
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup#v3
+        with:
+          version: 10
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-path: 20
+          cache: 'pnpm'
+
+      - name: Install Dependencies
+        run: pnpm Install
+
+      - name: build
+        run: pnpm run build
+        env:
+          VITE_APP_BASE_URL: /
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist
+          branch: gh-pages
