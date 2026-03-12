@@ -1,5 +1,5 @@
 import { Loading, NavButton } from '@/components/ui';
-import { useDeletePost, usePostDetail } from '@/hooks/queries/usePost';
+import { useDeletePost, usePostDetail } from '@/hooks/usePost';
 import { useNavigate, useParams } from 'react-router-dom';
 import { formatDateLong } from '@/utils';
 import { Pencil, Trash2, ChevronLeft } from 'lucide-react';

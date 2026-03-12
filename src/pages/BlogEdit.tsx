@@ -1,6 +1,6 @@
 import { Loading } from '@/components/ui';
 import BlogForm from '@/features/blog/components/BlogForm';
-import { usePostDetail, useUpdatePost } from '@/hooks/queries/usePost';
+import { usePostDetail, useUpdatePost } from '@/hooks/usePost';
 import { useParams } from 'react-router-dom';
 
 const BlogEdit = () => {

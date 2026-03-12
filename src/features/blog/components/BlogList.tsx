@@ -1,4 +1,4 @@
-import { usePosts } from '@/hooks/queries/usePost';
+import { usePosts } from '@/hooks/usePost';
 import { Loading } from '@/components/ui';
 import BlogItem from './BlogItem';
 

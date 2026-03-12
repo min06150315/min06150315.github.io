@@ -1,5 +1,5 @@
 import BlogForm from '@/features/blog/components/BlogForm';
-import { useCreatePost } from '@/hooks/queries/usePost';
+import { useCreatePost } from '@/hooks/usePost';
 
 const BlogWrite = () => {
   const { mutate, isPending } = useCreatePost();
