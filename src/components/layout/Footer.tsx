@@ -1,3 +1,4 @@
+import { SOCIAL_LINKS } from '@/constants/links';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
@@ -8,9 +9,20 @@ const Footer = () => {
           <p className="text-sm font-bold">
             © 2026 minbin blog. Powerd by React, Supabase, Github Pages.
           </p>
-          <div className="flex gap-6 text-sm font-medium">
-            <Link to="/github">GitHub</Link>
-            <Link to="/discord">Discord</Link>
+
+          <div className="flex gap-6">
+            {SOCIAL_LINKS.map((link) => (
+              <Link
+                key={link.name}
+                to={link.link}
+                title={link.name}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-base-gray"
+              >
+                <link.icon />
+              </Link>
+            ))}
           </div>
         </div>
       </div>
