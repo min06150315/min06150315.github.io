@@ -1,9 +1,8 @@
-// src/pages/admin/AdminDashboard.tsx
 import { usePosts } from '@/hooks/usePost';
 import { useNavigate } from 'react-router-dom';
 import { formatDateLong } from '@/utils';
 
-export const AdminDashboard = () => {
+const AdminPage = () => {
   const { data: posts } = usePosts();
   const navigate = useNavigate();
 
@@ -54,3 +53,5 @@ export const AdminDashboard = () => {
     </div>
   );
 };
+
+export default AdminPage;

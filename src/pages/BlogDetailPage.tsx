@@ -1,6 +1,6 @@
 import BlogDetailContainer from '@/features/blog/components/BlogDetailContainer';
 
-const BlogDetail = () => {
+const BlogDetailPage = () => {
   return (
     <div>
       <BlogDetailContainer />
@@ -8,4 +8,4 @@ const BlogDetail = () => {
   );
 };
 
-export default BlogDetail;
+export default BlogDetailPage;

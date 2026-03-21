@@ -1,14 +1,16 @@
 import { PageHeader } from '@/components/ui';
+import PostList from '@/features/blog/components/BlogList';
 import { PAGE_CONTENT } from '@/constants/contents';
 
-const Home = () => {
-  const { title, contents } = PAGE_CONTENT.HOME;
+const BlogListPage = () => {
+  const { title, contents } = PAGE_CONTENT.BLOG;
 
   return (
     <div>
       <PageHeader title={title} contents={contents} />
+      <PostList />
     </div>
   );
 };
 
-export default Home;
+export default BlogListPage;

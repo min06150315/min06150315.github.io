@@ -1,17 +1,17 @@
 import { createHashRouter } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import MainLayout from '@/components/layout/MainLayout';
-import NotFound from '@/pages/NotFound';
-import Home from '@/pages/Home';
-import { Loading } from '@/components/ui';
-import BlogDetail from '@/pages/BlogDetail';
-import BlogWrite from '@/pages/BlogWrite';
-import BlogEdit from '@/pages/BlogEdit';
-import LoginPage from '@/pages/LoginPage';
-import { AdminDashboard } from '@/pages/AdminDashboard';
 import { AdminLayout } from '@/components/layout/AdminLayout';
+import { Loading } from '@/components/ui';
+import NotFoundPage from '@/pages/NotFoundPage';
+import HomePage from '@/pages/HomePage';
+import BlogDetailPage from '@/pages/BlogDetailPage';
+import BlogWritePage from '@/pages/BlogWritePage';
+import BlogEditPage from '@/pages/BlogEditPage';
+import LoginPage from '@/pages/LoginPage';
+import AdminPage from '@/pages/AdminPage';
 
-const Blog = lazy(() => import('@/pages/Blog'));
+const Blog = lazy(() => import('@/pages/BlogListPage'));
 
 export const router = createHashRouter([
   {
@@ -19,13 +19,13 @@ export const router = createHashRouter([
     element: <MainLayout />,
     errorElement: (
       <MainLayout>
-        <NotFound />
+        <NotFoundPage />
       </MainLayout>
     ),
     children: [
       {
         index: true,
-        element: <Home />,
+        element: <HomePage />,
       },
       {
         path: 'login',
@@ -43,7 +43,7 @@ export const router = createHashRouter([
         path: 'blog/write',
         element: (
           <Suspense fallback={<Loading />}>
-            <BlogWrite />
+            <BlogWritePage />
           </Suspense>
         ),
       },
@@ -51,13 +51,13 @@ export const router = createHashRouter([
         path: 'blog/edit/:id',
         element: (
           <Suspense fallback={<Loading />}>
-            <BlogEdit />
+            <BlogEditPage />
           </Suspense>
         ),
       },
       {
         path: 'blog/:id',
-        element: <BlogDetail />,
+        element: <BlogDetailPage />,
       },
 
       {
@@ -66,7 +66,7 @@ export const router = createHashRouter([
         children: [
           {
             index: true,
-            element: <AdminDashboard />,
+            element: <AdminPage />,
           },
         ],
       },
