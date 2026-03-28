@@ -1,13 +1,31 @@
+import { useEffect, useState } from 'react';
 import { usePosts } from '@/hooks/usePost';
-import { Loading } from '@/components/ui';
-import PostItem from './PostItem';
+import PostCard from './PostCard';
+import PostSkeleton from '@/components/ui/skeleton/PostSkeleton';
 
 const PostList = () => {
-  const { data: posts, isLoading, isError } = usePosts();
+  const { data: posts, isLoading: isDataLoading } = usePosts();
+  const [isTimerLoading, setIsTimerLoading] = useState(true);
 
-  // TODO: 게시물 스켈레톤 스크린 추가
-  if (isLoading) return <Loading />;
-  if (isError) return <div>에러</div>;
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsTimerLoading(false);
+    }, 800);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  const showSkeleton = isDataLoading || isTimerLoading;
+
+  if (showSkeleton) {
+    return (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {Array.from({ length: 6 }).map((_, index) => (
+          <PostSkeleton key={index} />
+        ))}
+      </div>
+    );
+  }
 
   // TODO: 게시물이 없을 때 에러 처리
   if (!posts || posts.length == 0) {
@@ -18,7 +36,7 @@ const PostList = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {posts?.map((post) => (
-        <PostItem key={post.id} post={post} />
+        <PostCard key={post.id} post={post} />
       ))}
     </div>
   );

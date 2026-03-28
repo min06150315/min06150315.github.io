@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 import { formatDateLong } from '@/utils';
-import type { Post } from '@/types'; // Post 타입이 정의되어 있다고 가정
+import type { Post } from '@/types';
 
-interface PostItemProps {
+interface PostCardProps {
   post: Post;
 }
 
-const PostItem = ({ post }: PostItemProps) => {
+const PostCard = ({ post }: PostCardProps) => {
   return (
     <Link to={`/blog/${post.id}`} className="block">
       <div className="group flex flex-col h-full bg-[#1a1a1a] border border-[#222] rounded-xl overflow-hidden hover:border-primary/50 hover:-translate-y-2 transition-all duration-300 ease-out shadow-lg">
@@ -45,4 +45,4 @@ const PostItem = ({ post }: PostItemProps) => {
   );
 };
 
-export default PostItem;
+export default PostCard;
