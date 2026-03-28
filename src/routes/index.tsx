@@ -2,7 +2,6 @@ import { createHashRouter } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import MainLayout from '@/components/layout/MainLayout';
 import { AdminLayout } from '@/components/layout/AdminLayout';
-import { Loading } from '@/components/ui';
 import NotFoundPage from '@/pages/NotFoundPage';
 import HomePage from '@/pages/HomePage';
 import BlogDetailPage from '@/pages/BlogDetailPage';
@@ -34,7 +33,7 @@ export const router = createHashRouter([
       {
         path: 'blog',
         element: (
-          <Suspense fallback={<Loading />}>
+          <Suspense>
             <Blog />
           </Suspense>
         ),
@@ -55,7 +54,7 @@ export const router = createHashRouter([
           {
             path: 'blog/write',
             element: (
-              <Suspense fallback={<Loading />}>
+              <Suspense>
                 <BlogWritePage />
               </Suspense>
             ),
@@ -63,7 +62,7 @@ export const router = createHashRouter([
           {
             path: 'blog/edit/:id',
             element: (
-              <Suspense fallback={<Loading />}>
+              <Suspense>
                 <BlogEditPage />
               </Suspense>
             ),
