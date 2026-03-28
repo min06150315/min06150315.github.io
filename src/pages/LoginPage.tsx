@@ -12,7 +12,7 @@ const LoginPage = () => {
       <h1 className="text-2xl font-bold mb-8">Admin Access</h1>
       <button
         onClick={signInWithGithub}
-        className="px-6 py-3 bg-[#24292e] text-white rounded-lg flex items-center gap-2 hover:bg-black transition-colors"
+        className="px-6 py-3 bg-[#24292e] text-white rounded-lg flex items-center gap-2 hover:bg-black transition-colors cursor-pointer"
       >
         Sign in with GitHub
       </button>

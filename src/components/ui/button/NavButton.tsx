@@ -21,7 +21,7 @@ export const NavButton = ({
   variant = 'black',
   className = '',
 }: NavButtonProps) => {
-  const baseStyles = 'px-3 py-2 rounded-md transition-colors';
+  const baseStyles = 'px-3 py-2 rounded-md transition-colors cursor-pointer';
 
   const variants = {
     black: 'hover:bg-hover-black',

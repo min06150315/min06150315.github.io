@@ -6,10 +6,10 @@ const BlogListPage = () => {
   const { title, contents } = PAGE_CONTENT.BLOG;
 
   return (
-    <div>
+    <>
       <PageHeader title={title} contents={contents} />
       <PostList />
-    </div>
+    </>
   );
 };
 

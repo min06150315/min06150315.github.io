@@ -1,5 +1,6 @@
 import { Outlet, Navigate, Link } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
+import { signOut } from '@/api/auth';
 
 export const AdminLayout = () => {
   const { isAdmin, isLoading } = useAuth();
@@ -10,20 +11,26 @@ export const AdminLayout = () => {
   if (!isAdmin) return <Navigate to="/" replace />;
 
   return (
-    <div className="flex min-h-screen bg-[#0a0a0a]">
+    <div className="flex min-h-screen">
       {/* 어드민 사이드바 (선택 사항) */}
-      <aside className="w-64 border-r border-[#222] p-6">
+      <aside className="w-64 border-r border-[#333] p-6">
         <h2 className="text-xl font-bold mb-8 text-blue-500">Admin</h2>
         <nav className="space-y-4">
           <Link to="/admin" className="block hover:text-blue-400">
             글 관리
           </Link>
-          <Link to="/blog/write" className="block hover:text-blue-400">
+          <Link to="/admin/write" className="block hover:text-blue-400">
             새 글 쓰기
           </Link>
-          <Link to="/" className="block hover:text-gray-500 text-sm italic">
+          <Link to="/" className="block hover:text-blue-400">
             블로그로 돌아가기
           </Link>
+          <button
+            onClick={signOut}
+            className="cursor-pointer hover:text-blue-400"
+          >
+            로그아웃
+          </button>
         </nav>
       </aside>
 

@@ -40,14 +40,6 @@ export const router = createHashRouter([
         ),
       },
       {
-        path: 'blog/write',
-        element: (
-          <Suspense fallback={<Loading />}>
-            <BlogWritePage />
-          </Suspense>
-        ),
-      },
-      {
         path: 'blog/edit/:id',
         element: (
           <Suspense fallback={<Loading />}>
@@ -67,6 +59,14 @@ export const router = createHashRouter([
           {
             index: true,
             element: <AdminPage />,
+          },
+          {
+            path: 'write',
+            element: (
+              <Suspense fallback={<Loading />}>
+                <BlogWritePage />
+              </Suspense>
+            ),
           },
         ],
       },

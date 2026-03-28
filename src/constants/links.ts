@@ -24,12 +24,14 @@ export const SOCIAL_LINKS = [
   },
   {
     name: 'Discord',
-    link: 'https://discord.gg/min06150315',
+    // link: 'https://discord.gg/min06150315',
+    link: '/login',
     icon: DiscordIcon,
   },
   {
     name: 'Instagram',
-    link: 'https://instagram.com/inter0615',
+    // link: 'https://instagram.com/inter0615',
+    link: '/admin',
     icon: InstagramIcon,
   },
 ];

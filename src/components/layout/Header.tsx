@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { NavButton } from '@/components/ui';
 import { useTheme } from '@/hooks/useTheme';
 import { IconLogo, Moon, Sun } from '../ui/icons/NavIcons';
+import { Search } from 'lucide-react';
 
 const Header = () => {
   const { theme, toggleTheme } = useTheme();
@@ -16,11 +17,11 @@ const Header = () => {
           <IconLogo />
         </Link>
 
-        <nav className="flex items-center gap-x-4 text-sm font-medium">
+        <nav className="flex items-center gap-x-2 text-sm font-medium">
           <NavButton to="/blog">Blog</NavButton>
           <NavButton to="/about">About</NavButton>
-          <NavButton to="/search" variant="primary">
-            Search
+          <NavButton to="/serach">
+            <Search size={20} strokeWidth={2} className="cursor-pointer" />
           </NavButton>
           <NavButton onClick={toggleTheme} className="pl-2 pr-2">
             {theme === 'dark' ? <Moon /> : <Sun />}
