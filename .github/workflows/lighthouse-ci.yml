@@ -17,12 +17,13 @@ jobs:
       - name: Install pnpm 📦
         uses: pnpm/action-setup@v3
         with:
-        version: 9
+          version: 9 # ✅
 
       - name: Setup Node ⚙️
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: 'pnpm'
 
       - name: Install dependencies 🏗️
         run: pnpm install
@@ -32,13 +33,10 @@ jobs:
         env:
           VITE_APP_BASE_URL: /
 
-      - name: Install LHCI 🛠️
-        run: npm install -g @lhci/cli@0.13.x
-
-      - name: Collect 📊
-        run: lhci collect --staticDistDir=./dist
-
-      - name: Upload 🚀
+      - name: Run Lighthouse CI 📊
+        run: |
+          npm install -g @lhci/cli@0.13.x
+          lhci collect --staticDistDir=./dist
+          lhci upload --target=temporary-public-storage
         env:
-          VITE_LIGHTHOUSE_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
-        run: lhci upload
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
