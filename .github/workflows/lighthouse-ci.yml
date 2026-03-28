@@ -36,7 +36,7 @@ jobs:
       - name: Run Lighthouse CI 📊
         run: |
           npm install -g @lhci/cli@0.13.x
-          lhci collect --staticDistDir=./dist
+          lhci collect --staticDistDir=./dist --url=http://localhost:42405
           lhci upload --target=temporary-public-storage
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}

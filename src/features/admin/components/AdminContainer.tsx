@@ -1,15 +1,11 @@
 import { usePosts } from '@/hooks/usePost';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { formatDateLong } from '@/utils';
 import { SquarePen, Trash } from 'lucide-react';
 import { deletePost } from '@/api/posts.api';
 const AdminContainer = () => {
   const { data: posts } = usePosts();
   const navigate = useNavigate();
-
-  const handlePost = (id: string | number) => {
-    navigate(`/blog/${id}`);
-  };
 
   const handleEdit = (id: string | number) => {
     navigate(`/admin/blog/edit/${id}`);
@@ -38,12 +34,10 @@ const AdminContainer = () => {
           </thead>
           <tbody className="divide-y divide-hover-black">
             {posts?.map((post) => (
-              <tr
-                key={post.id}
-                onClick={() => handlePost(post.id!)}
-                className="hover:bg-hover-black cursor-pointer"
-              >
-                <td className="px-6 py-4 font-medium">{post.title}</td>
+              <tr key={post.id} className="hover:bg-hover-black cursor-pointer">
+                <Link to={`/admin/blog/edit/${post.id}`}>
+                  <td className="px-6 py-4 font-medium">{post.title}</td>
+                </Link>
                 <td className="px-6 py-4 text-gray-500">
                   {formatDateLong(post.created_at)}
                 </td>
