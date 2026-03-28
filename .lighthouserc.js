@@ -3,9 +3,8 @@ export default {
     collect: {
       startServerCommand: 'pnpm dev',
       staticDistDir: '/dist',
-      collect: {
-        numberOfRuns: 3,
-      },
+      url: ['https://silver-xylophone-q7qx7r4jq46rh9grg-5173.app.github.dev/'],
+      numberOfRuns: 3,
       settings: {
         preset: 'desktop',
       },
