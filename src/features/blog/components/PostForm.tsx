@@ -2,23 +2,30 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import type { Post } from '@/types';
-import { useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { NavButton } from '@/components/ui';
+import { Image, X } from 'lucide-react';
 
 const blogSchema = z.object({
   title: z.string().min(2, '제목은 최소 2글자 이상이어야 합니다.').max(50),
   content: z.string().min(5, '내용은 최소 5글자 이상 적어주세요.'),
 });
 
-type PostFormData = z.infer<typeof blogSchema>;
+export type PostFormData = z.infer<typeof blogSchema>;
 
 interface PostFormProps {
   initialData?: Post | null;
-  onSubmit: (data: PostFormData) => void;
+  onSubmit: (data: PostFormData, imageFile: File | null) => void;
   isLoading: boolean;
 }
 
 const PostForm = ({ initialData, onSubmit, isLoading }: PostFormProps) => {
+  const [preview, setPreview] = useState<string | null>(
+    initialData?.thumbnail_image || null,
+  );
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
   const {
     register,
     handleSubmit,
@@ -41,11 +48,65 @@ const PostForm = ({ initialData, onSubmit, isLoading }: PostFormProps) => {
     }
   }, [initialData, reset]);
 
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setSelectedFile(file);
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setPreview(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleRemoveImage = () => {
+    setPreview(null);
+    setSelectedFile(null);
+    if (fileInputRef.current) fileInputRef.current.value = '';
+  };
+
   return (
     <form
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={handleSubmit((data) => onSubmit(data, selectedFile))}
       className="space-y-6 max-w-3xl mx-auto"
     >
+      <div className="mb-8">
+        <input
+          type="file"
+          accept="image/*"
+          className="hidden"
+          ref={fileInputRef}
+          onChange={handleImageChange}
+        />
+
+        {preview ? (
+          <div className="relative aspect-video w-full rounded-xl overflow-hidden border border-[#222]">
+            <img
+              src={preview}
+              alt="Thumbnail preview"
+              className="w-full h-full object-cover"
+            />
+            <button
+              type="button"
+              onClick={handleRemoveImage}
+              className="absolute top-3 right-3 p-1.5 bg-black/50 hover:bg-black rounded-full text-white transition-colors cursor-pointer"
+            >
+              <X size={20} />
+            </button>
+          </div>
+        ) : (
+          <button
+            type="button"
+            onClick={() => fileInputRef.current?.click()}
+            className="w-full aspect-video rounded-xl border-2 border-dashed border-[#222] flex flex-col items-center justify-center gap-y-3 text-slate-500 hover:bg-[#161616] hover:border-slate-700 transition-all"
+          >
+            <Image size={40} strokeWidth={1.5} />
+            <span className="text-sm">썸네일 이미지 추가</span>
+          </button>
+        )}
+      </div>
+
       <div>
         <input
           {...register('title')}

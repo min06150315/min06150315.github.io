@@ -9,4 +9,22 @@ if (!supabaseUrl || !supabaseAnonKey) {
 
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
+export const uploadImage = async (file: File): Promise<string> => {
+  const fileExt = file.name.split('.').pop();
+  const fileName = `${Math.random().toString(36).substring(2)}-${Date.now()}.${fileExt}`;
+  const filePath = `thumbnails/${fileName}`;
+
+  const { error: uploadError } = await supabase.storage
+    .from('blog-assets')
+    .upload(filePath, file);
+
+  if (uploadError) {
+    throw new Error('이미지 업로드 실패');
+  }
+
+  const { data } = supabase.storage.from('blog-assets').getPublicUrl(filePath);
+
+  return data.publicUrl;
+};
+
 export default supabase;

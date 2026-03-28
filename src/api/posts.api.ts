@@ -23,7 +23,7 @@ export const getPostById = async (id: string | number): Promise<Post> => {
 };
 
 export const createPost = async (
-  newPost: Pick<Post, 'title' | 'content'>,
+  newPost: Omit<Post, 'title' | 'content'>,
 ): Promise<Post> => {
   const { data, error } = await supabase
     .from('posts')

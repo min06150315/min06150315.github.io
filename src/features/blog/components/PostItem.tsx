@@ -12,9 +12,9 @@ const PostItem = ({ post }: PostItemProps) => {
       <div className="group flex flex-col h-full bg-[#1a1a1a] border border-[#222] rounded-xl overflow-hidden hover:border-primary/50 hover:-translate-y-2 transition-all duration-300 ease-out shadow-lg">
         {/* 1. 썸네일 영역 (이미지가 없을 때 대비 기본 배경 처리) */}
         <div className="relative aspect-video w-full overflow-hidden bg-[#222]">
-          {post.thumbnail ? (
+          {post.thumbnail_image ? (
             <img
-              src={post.thumbnail}
+              src={post.thumbnail_image}
               alt={post.title}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
