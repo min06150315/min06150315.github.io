@@ -14,12 +14,12 @@ export const AdminLayout = () => {
     <div className="flex min-h-screen">
       {/* 어드민 사이드바 (선택 사항) */}
       <aside className="w-64 border-r border-[#333] p-6">
-        <h2 className="text-xl font-bold mb-8 text-blue-500">Admin</h2>
+        <h2 className="text-xl font-bold mb-8 text-blue-500">Admin Page</h2>
         <nav className="space-y-4">
           <Link to="/admin" className="block hover:text-blue-400">
-            글 관리
+            게시물 관리
           </Link>
-          <Link to="/admin/write" className="block hover:text-blue-400">
+          <Link to="/admin/blog/write" className="block hover:text-blue-400">
             새 글 쓰기
           </Link>
           <Link to="/" className="block hover:text-blue-400">
