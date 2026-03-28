@@ -19,9 +19,7 @@ const AdminContainer = () => {
 
   return (
     <div>
-      <div className="flex justify-between items-center mb-8">
-        <h1 className="text-3xl font-bold">게시물 관리</h1>
-      </div>
+      <h1 className="text-3xl font-bold mb-8">게시물 관리</h1>
 
       <div className="border border-hover-black rounded-lg overflow-hidden">
         <table className="w-full text-left text-sm">
@@ -35,7 +33,7 @@ const AdminContainer = () => {
           <tbody className="divide-y divide-hover-black">
             {posts?.map((post) => (
               <tr key={post.id} className="hover:bg-hover-black cursor-pointer">
-                <Link to={`/admin/blog/edit/${post.id}`}>
+                <Link to={`/blog/${post.id}`}>
                   <td className="px-6 py-4 font-medium">{post.title}</td>
                 </Link>
                 <td className="px-6 py-4 text-gray-500">

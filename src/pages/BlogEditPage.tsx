@@ -12,7 +12,6 @@ const BlogEditPage = () => {
   const { data: post, isLoading: isFetching } = usePostDetail(id!);
   const { mutate, isPending: isUpdating } = useUpdatePost(id!);
 
-
   const handleSubmit = async (data: PostFormData, imageFile: File | null) => {
     try {
       let thumbnailUrl = post?.thumbnail_image;
@@ -37,7 +36,8 @@ const BlogEditPage = () => {
   if (!post) return <div>게시글을 찾을 수 없습니다.</div>;
 
   return (
-    <div className="py-12">
+    <div className="pb-6">
+      <h1 className="text-3xl font-bold mb-8">게시물 수정</h1>
       <PostForm
         initialData={post}
         onSubmit={handleSubmit}

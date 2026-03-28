@@ -11,9 +11,9 @@ const BlogWritePage = () => {
   const handleSubmit = async (data: PostFormData, imageFile: File | null) => {
     try {
       let uploadedUrl: string | null = null;
-    if (imageFile) {
-      uploadedUrl = await uploadImage(imageFile);
-    }
+      if (imageFile) {
+        uploadedUrl = await uploadImage(imageFile);
+      }
 
       const postPayload = {
         title: data.title,
@@ -28,7 +28,12 @@ const BlogWritePage = () => {
     }
   };
 
-  return <PostForm onSubmit={handleSubmit} isLoading={isPending} />;
+  return (
+    <div className="pb-6">
+      <h1 className="text-3xl font-bold mb-8">게시물 작성</h1>
+      <PostForm onSubmit={handleSubmit} isLoading={isPending} />
+    </div>
+  );
 };
 
 export default BlogWritePage;
