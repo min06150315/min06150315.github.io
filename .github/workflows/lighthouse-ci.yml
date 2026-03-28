@@ -2,8 +2,8 @@ name: lighthouse CI
 
 on:
   push:
-    branches: 
-      -main
+    branches:
+      - main
 
 jobs:
   lhci:
@@ -32,10 +32,13 @@ jobs:
         env:
           VITE_APP_BASE_URL: /
 
-      - name: Collect
-        run: lhci collect
+      - name: Install LHCI 🛠️
+        run: npm install -g @lhci/cli@0.13.x
 
-      - name: Upload
+      - name: Collect 📊
+        run: lhci collect --staticDistDir=./dist
+
+      - name: Upload 🚀
         env:
           VITE_LIGHTHOUSE_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
         run: lhci upload
