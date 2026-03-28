@@ -2,6 +2,7 @@ import { Loading } from '@/components/ui';
 import { usePostDetail } from '@/hooks/usePost';
 import { useParams } from 'react-router-dom';
 import { formatDateLong } from '@/utils';
+import CommentList from '@/features/comment/components/CommentList';
 // import { Pencil, Trash2, ChevronLeft } from 'lucide-react';
 
 const BlogDetailContainer = () => {
@@ -11,6 +12,9 @@ const BlogDetailContainer = () => {
   // TODO: ID에 해당하는 게시물이 없으면 404 처리
 
   const { data: post, isLoading, isError } = usePostDetail(Number(id));
+
+  const { id: postId } = useParams<{ id: string }>();
+  const numericPostId = Number(postId);
   // const { mutate: deletePost, isPending: isDeleting } = useDeletePost();
 
   // TODO: 게시물 스켈레톤 스크린 추가
@@ -52,6 +56,10 @@ const BlogDetailContainer = () => {
       <div className="whitespace-pre-wrap prose prose-invert max-w-none text-base-middle-gray leading-relaxed text-lg">
         <p className="mb-4">{post.content}</p>
       </div>
+
+      <section id="comments">
+        <CommentList postId={numericPostId} />
+      </section>
     </article>
   );
 };
