@@ -10,21 +10,21 @@ const blogSchema = z.object({
   content: z.string().min(5, '내용은 최소 5글자 이상 적어주세요.'),
 });
 
-type BlogFormData = z.infer<typeof blogSchema>;
+type PostFormData = z.infer<typeof blogSchema>;
 
-interface BlogFormProps {
+interface PostFormProps {
   initialData?: Post | null;
-  onSubmit: (data: BlogFormData) => void;
+  onSubmit: (data: PostFormData) => void;
   isLoading: boolean;
 }
 
-const BlogForm = ({ initialData, onSubmit, isLoading }: BlogFormProps) => {
+const PostForm = ({ initialData, onSubmit, isLoading }: PostFormProps) => {
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<BlogFormData>({
+  } = useForm<PostFormData>({
     resolver: zodResolver(blogSchema),
     defaultValues: {
       title: '',
@@ -85,4 +85,4 @@ const BlogForm = ({ initialData, onSubmit, isLoading }: BlogFormProps) => {
   );
 };
 
-export default BlogForm;
+export default PostForm;

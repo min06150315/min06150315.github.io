@@ -1,10 +1,10 @@
-import BlogForm from '@/features/blog/components/BlogForm';
+import PostForm from '@/features/blog/components/PostForm';
 import { useCreatePost } from '@/hooks/usePost';
 
 const BlogWritePage = () => {
   const { mutate, isPending } = useCreatePost();
 
-  return <BlogForm onSubmit={mutate} isLoading={isPending} />;
+  return <PostForm onSubmit={mutate} isLoading={isPending} />;
 };
 
 export default BlogWritePage;

@@ -1,5 +1,5 @@
 import { PageHeader } from '@/components/ui';
-import PostList from '@/features/blog/components/BlogList';
+import PostList from '@/features/blog/components/PostList';
 import { PAGE_CONTENT } from '@/constants/contents';
 
 const BlogListPage = () => {

@@ -1,5 +1,5 @@
 import { Loading } from '@/components/ui';
-import BlogForm from '@/features/blog/components/BlogForm';
+import PostForm from '@/features/blog/components/PostForm';
 import { usePostDetail, useUpdatePost } from '@/hooks/usePost';
 import { useParams } from 'react-router-dom';
 
@@ -14,7 +14,7 @@ const BlogEditPage = () => {
 
   return (
     <div>
-      <BlogForm initialData={post} onSubmit={mutate} isLoading={isUpdating} />
+      <PostForm initialData={post} onSubmit={mutate} isLoading={isUpdating} />
     </div>
   );
 };

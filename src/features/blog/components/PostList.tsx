@@ -1,8 +1,8 @@
 import { usePosts } from '@/hooks/usePost';
 import { Loading } from '@/components/ui';
-import BlogItem from './BlogItem';
+import PostItem from './PostItem';
 
-const BlogList = () => {
+const PostList = () => {
   const { data: posts, isLoading, isError } = usePosts();
 
   // TODO: 게시물 스켈레톤 스크린 추가
@@ -16,12 +16,12 @@ const BlogList = () => {
   // TODO: 무한 스크롤 구현
 
   return (
-    <div className="space-y-6 mt-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {posts?.map((post) => (
-        <BlogItem key={post.id} post={post} />
+        <PostItem key={post.id} post={post} />
       ))}
     </div>
   );
 };
 
-export default BlogList;
+export default PostList;
