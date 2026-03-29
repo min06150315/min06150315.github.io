@@ -36,7 +36,6 @@ jobs:
       - name: Run Lighthouse CI 📊
         run: |
           npm install -g @lhci/cli@0.13.x
-          lhci collect --staticDistDir=./dist --url=https://silver-xylophone-q7qx7r4jq46rh9grg-5173.app.github.dev/
-          lhci upload --target=temporary-public-storage
+          lhci autorun
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
