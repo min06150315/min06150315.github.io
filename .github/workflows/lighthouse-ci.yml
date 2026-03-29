@@ -33,6 +33,9 @@ jobs:
         env:
           VITE_APP_BASE_URL: /
 
+      - name: List files in dist 📁
+        run: ls -R ./dist
+
       - name: Run Lighthouse CI 📊
         run: |
           npm install -g @lhci/cli@0.13.x

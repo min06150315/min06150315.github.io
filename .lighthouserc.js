@@ -2,7 +2,8 @@ export default {
   ci: {
     collect: {
       staticDistDir: '/dist',
-      numberOfRuns: 3,
+      url: ['http://localhost:33365/'],
+      numberOfRuns: 1,
       settings: {
         chromeFlags: '--no-sandbox --disable-setuid-sandbox --headless',
       },
