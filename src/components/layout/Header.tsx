@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom';
 import { NavButton } from '@/components/ui';
-import { useTheme } from '@/hooks/useTheme';
-import { IconLogo, Moon, Sun } from '../ui/icons/NavIcons';
+// import { useTheme } from '@/hooks/useTheme';
+// import { IconLogo, Moon, Sun } from '../ui/icons/NavIcons';
+import { IconLogo, Moon } from '@/components/ui/icons/NavIcons';
 import { Search } from 'lucide-react';
+import { signOut } from '@/api/auth';
 
 const Header = () => {
-  const { theme, toggleTheme } = useTheme();
+  // const { theme, toggleTheme } = useTheme();
 
   return (
     <header className="sticky top-0 z-50 w-full backdrop-blur-md">
@@ -23,8 +25,11 @@ const Header = () => {
           <NavButton to="/serach">
             <Search size={20} strokeWidth={2} className="cursor-pointer" />
           </NavButton>
-          <NavButton onClick={toggleTheme} className="pl-2 pr-2">
+          {/* <NavButton onClick={toggleTheme} className="pl-2 pr-2">
             {theme === 'dark' ? <Moon /> : <Sun />}
+          </NavButton> */}
+          <NavButton onClick={signOut} className="pl-2 pr-2">
+            <Moon />
           </NavButton>
         </nav>
       </div>

@@ -1,6 +1,7 @@
 import { useComment } from '@/hooks/useComment';
 import CommentItem from './CommentItem';
 import { Loader2 } from 'lucide-react';
+import CommentInput from './CommentInput';
 
 interface CommentListProps {
   postId: number;
@@ -26,22 +27,25 @@ const CommentList = ({ postId }: CommentListProps) => {
   }
 
   return (
-    <div className="mt-12">
+    <div className="mt-16 pt-10 border-t border-hover-black">
       <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
         댓글{' '}
         <span className="text-primary text-sm">{comments?.length || 0}</span>
       </h3>
+      <div className="mb-12">
+        <CommentInput postId={postId} />
+      </div>
 
-      {comments && comments.length > 0 ? (
+      {isLoading ? (
+        <div className="flex justify-center py-10"><Loader2 className="animate-spin text-slate-700" /></div>
+      ) : comments && comments.length > 0 ? (
         <div className="space-y-4">
           {comments.map((comment) => (
             <CommentItem key={comment.id} comment={comment} />
           ))}
         </div>
       ) : (
-        <div className="text-gray-500 text-sm py-10 text-center border border-dashed border-[#333] rounded-xl">
-          첫 번째 댓글을 남겨보세요!
-        </div>
+        <></>
       )}
     </div>
   );

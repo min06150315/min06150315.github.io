@@ -81,7 +81,7 @@ const PostForm = ({ initialData, onSubmit, isLoading }: PostFormProps) => {
         />
 
         {preview ? (
-          <div className="relative aspect-video w-full rounded-xl overflow-hidden border border-[#222]">
+          <div className="relative aspect-video w-full rounded-xl overflow-hidden border border-hover-black">
             <img
               src={preview}
               alt="Thumbnail preview"
@@ -99,7 +99,7 @@ const PostForm = ({ initialData, onSubmit, isLoading }: PostFormProps) => {
           <button
             type="button"
             onClick={() => fileInputRef.current?.click()}
-            className="w-full aspect-video rounded-xl border-2 border-dashed border-[#222] flex flex-col items-center justify-center gap-y-3 text-slate-500 hover:bg-[#161616] hover:border-slate-700 transition-all"
+            className="w-full aspect-video rounded-xl border-2 border-dashed border-hover-black flex flex-col items-center justify-center gap-y-3 text-slate-500 hover:bg-[#161616] hover:border-slate-700 transition-all"
           >
             <Image size={40} strokeWidth={1.5} />
             <span className="text-sm">썸네일 이미지 추가</span>
