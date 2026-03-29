@@ -37,7 +37,9 @@ const CommentList = ({ postId }: CommentListProps) => {
       </div>
 
       {isLoading ? (
-        <div className="flex justify-center py-10"><Loader2 className="animate-spin text-slate-700" /></div>
+        <div className="flex justify-center py-10">
+          <Loader2 className="animate-spin text-slate-700" />
+        </div>
       ) : comments && comments.length > 0 ? (
         <div className="space-y-4">
           {comments.map((comment) => (

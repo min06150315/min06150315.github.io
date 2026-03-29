@@ -2,9 +2,10 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { useCreateComment } from '@/hooks/useComment';
-import { useAuth } from '@/hooks/useAuth'; // 1. 만들어두신 훅 임포트
+import { useAuth } from '@/hooks/useAuth';
 import { NavButton } from '@/components/ui';
 import { signInWithGithub } from '@/api/auth';
+import { Github } from 'lucide-react';
 
 const commentSchema = z.object({
   content: z
@@ -52,9 +53,10 @@ const CommentInput = ({ postId }: { postId: number }) => {
         </p>
         <button
           onClick={signInWithGithub}
-          className="bg-white text-black px-6 py-2 rounded-full text-sm font-bold hover:bg-gray-200 transition-colors cursor-pointer"
+          className="flex items-center justify-center gap-2 w-full py-3 px-4 bg-[#24292F] hover:bg-[#24292F]/90 text-white rounded-xl transition-all font-medium border border-[#333] cursor-pointer"
         >
-          GitHub으로 시작하기
+          <Github className="w-5 h-5" />
+          <span>GitHub으로 시작하기</span>
         </button>
       </div>
     );
