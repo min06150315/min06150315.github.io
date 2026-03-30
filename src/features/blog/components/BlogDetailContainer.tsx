@@ -3,7 +3,10 @@ import { usePostDetail } from '@/hooks/usePost';
 import { useParams } from 'react-router-dom';
 import { formatDateLong } from '@/utils';
 import CommentList from '@/features/comment/components/CommentList';
-// import { Pencil, Trash2, ChevronLeft } from 'lucide-react';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import rehypeHighlight from 'rehype-highlight';
+import 'highlight.js/styles/atom-one-dark.css';
 
 const BlogDetailContainer = () => {
   // const navigate = useNavigate();
@@ -15,7 +18,6 @@ const BlogDetailContainer = () => {
 
   const { id: postId } = useParams<{ id: string }>();
   const numericPostId = Number(postId);
-  // const { mutate: deletePost, isPending: isDeleting } = useDeletePost();
 
   // TODO: 게시물 스켈레톤 스크린 추가
   if (isLoading) return <Loading />;
@@ -23,12 +25,6 @@ const BlogDetailContainer = () => {
   if (isError) return <div>에러</div>;
 
   if (!post) return <div>게시물을 찾을 수 없습니다.</div>;
-
-  // const handleDelete = () => {
-  //   if (window.confirm('정말 이 게시글을 삭제하시겠습니까?')) {
-  //     deletePost(id!);
-  //   }
-  // };
 
   return (
     <article className="max-w-3xl mx-auto pb-12 px-4">
@@ -41,7 +37,6 @@ const BlogDetailContainer = () => {
         </div>
       </header>
 
-      {/* 내용 */}
       {post.thumbnail_image ? (
         <div className="relative aspect-video h-full mb-6">
           <img
@@ -53,8 +48,19 @@ const BlogDetailContainer = () => {
       ) : (
         <></>
       )}
-      <div className="whitespace-pre-wrap prose prose-invert max-w-none text-base-middle-gray leading-relaxed text-lg">
+      {/* 기본 본문 출력 */}
+      {/* <div className="whitespace-pre-wrap prose prose-invert max-w-none text-base-middle-gray leading-relaxed text-lg">
         <p className="mb-4">{post.content}</p>
+      </div> */}
+
+      {/* 마크다운 본문 출력 */}
+      <div className="prose prose-invert max-w-none text-base-middle-gray leading-relaxed text-lg mb-16">
+        <ReactMarkdown
+          remarkPlugins={[remarkGfm]}
+          rehypePlugins={[rehypeHighlight]}
+        >
+          {post.content}
+        </ReactMarkdown>
       </div>
 
       <section id="comments">

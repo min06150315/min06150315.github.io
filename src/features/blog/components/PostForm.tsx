@@ -5,6 +5,9 @@ import type { Post } from '@/types';
 import React, { useEffect, useRef, useState } from 'react';
 import { NavButton } from '@/components/ui';
 import { Image, X } from 'lucide-react';
+import { Editor } from '@toast-ui/react-editor';
+import '@toast-ui/editor/dist/toastui-editor.css';
+import '@toast-ui/editor/dist/theme/toastui-editor-dark.css';
 
 const blogSchema = z.object({
   title: z.string().min(2, '제목은 최소 2글자 이상이어야 합니다.').max(50),
@@ -26,10 +29,14 @@ const PostForm = ({ initialData, onSubmit, isLoading }: PostFormProps) => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  const editorRef = useRef<Editor>(null);
+
   const {
     register,
     handleSubmit,
     reset,
+    setValue,
+    trigger,
     formState: { errors },
   } = useForm<PostFormData>({
     resolver: zodResolver(blogSchema),
@@ -45,8 +52,15 @@ const PostForm = ({ initialData, onSubmit, isLoading }: PostFormProps) => {
         title: initialData.title,
         content: initialData.content,
       });
+      editorRef.current?.getInstance().setMarkdown(initialData.content);
     }
   }, [initialData, reset]);
+
+  const handleEditorChange = () => {
+    const markdown = editorRef.current?.getInstance().getMarkdown() || '';
+    setValue('content', markdown); // react-hook-form의 'content' 필드 업데이트
+    trigger('content'); // 실시간으로 유효성 검사 실행
+  };
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -119,18 +133,45 @@ const PostForm = ({ initialData, onSubmit, isLoading }: PostFormProps) => {
         )}
       </div>
 
-      <div className="h-[1px] bg-base-gray" />
+      <div className="h-px bg-base-gray mb-8" />
 
-      <div>
+      <div className="prose prose-invert max-w-none">
+        <Editor
+          ref={editorRef}
+          initialValue={initialData?.content || ' '}
+          previewStyle="vertical"
+          height="600px"
+          initialEditType="markdown"
+          useCommandShortcut={true}
+          theme="dark"
+          onChange={handleEditorChange}
+          toolbarItems={[
+            ['heading', 'bold', 'italic', 'strike'],
+            ['hr', 'quote'],
+            ['ul', 'ol', 'task', 'indent', 'outdent'],
+            ['table', 'image', 'link'],
+            ['code', 'codeblock'],
+          ]}
+        />
+        {/* react-hook-form의 유효성 검사를 위해 숨겨진 input 등록 (선택사항) */}
+        <input type="hidden" {...register('content')} />
+
+        {errors.content && (
+          <p className="text-red-500 text-sm mt-4">{errors.content.message}</p>
+        )}
+      </div>
+
+      {/* 기존의 textarea */}
+      {/* <div>
         <textarea
           {...register('content')}
           placeholder="내용을 입력하세요..."
-          className="w-full h-[500px] bg-transparent text-lg border-none outline-none text-base-middle-gray resize-none"
+          className="w-full h-125 bg-transparent text-lg border-none outline-none text-base-middle-gray resize-none"
         />
         {errors.content && (
           <p className="text-red-500 text-sm mt-1">{errors.content.message}</p>
         )}
-      </div>
+      </div> */}
 
       <div className="flex justify-end gap-x-3">
         <NavButton
