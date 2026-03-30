@@ -32,3 +32,37 @@
   src: url('@/assets/fonts/pretendard/PretendardVariable.woff2')
     format('woff2-variations');
 }
+
+.toastui-editor-dark,
+.toastui-editor-dark .toastui-editor-defaultUI {
+  background-color: transparent !important;
+}
+
+.toastui-editor-dark .toastui-editor-toolbar {
+  background-color: #222222 !important;
+}
+
+.toastui-editor-dark .ProseMirror {
+  color: #e5e7eb !important;
+  font-family:
+    'Pretendard',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif !important;
+  font-size: 1rem !important;
+  line-height: 1.8 !important;
+  padding: 20px !important;
+}
+
+.toastui-editor-dark .toastui-editor-md-preview {
+  border-radius: 0 0 8px 0;
+  padding: 20px !important;
+}
+
+.toastui-editor-dark .ProseMirror pre {
+  background-color: #2e2e2e !important;
+  border-radius: 4px;
+  padding: 10px;
+}

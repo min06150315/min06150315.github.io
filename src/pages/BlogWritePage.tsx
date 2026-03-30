@@ -10,15 +10,15 @@ const BlogWritePage = () => {
 
   const handleSubmit = async (data: PostFormData, imageFile: File | null) => {
     try {
-      let uploadedUrl: string | null = null;
+      let thumbnailUrl: string | null = null;
       if (imageFile) {
-        uploadedUrl = await uploadImage(imageFile);
+        thumbnailUrl = await uploadImage(imageFile, 'thumbnails');
       }
 
       const postPayload = {
         title: data.title,
         content: data.content,
-        thumbnail_image: uploadedUrl,
+        thumbnail_image: thumbnailUrl,
       };
 
       mutate(postPayload as Post);

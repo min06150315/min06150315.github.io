@@ -17,7 +17,7 @@ const BlogEditPage = () => {
       let thumbnailUrl = post?.thumbnail_image;
 
       if (imageFile) {
-        thumbnailUrl = await uploadImage(imageFile);
+        thumbnailUrl = await uploadImage(imageFile, 'thumbnails');
       }
       const updatedPost: Partial<Post> = {
         title: data.title,

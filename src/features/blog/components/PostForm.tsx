@@ -5,6 +5,7 @@ import type { Post } from '@/types';
 import React, { useEffect, useRef, useState } from 'react';
 import { NavButton } from '@/components/ui';
 import { Image, X } from 'lucide-react';
+import { uploadImage } from '@/lib/supabase';
 import { Editor } from '@toast-ui/react-editor';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import '@toast-ui/editor/dist/theme/toastui-editor-dark.css';
@@ -58,8 +59,8 @@ const PostForm = ({ initialData, onSubmit, isLoading }: PostFormProps) => {
 
   const handleEditorChange = () => {
     const markdown = editorRef.current?.getInstance().getMarkdown() || '';
-    setValue('content', markdown); // react-hook-form의 'content' 필드 업데이트
-    trigger('content'); // 실시간으로 유효성 검사 실행
+    setValue('content', markdown);
+    trigger('content');
   };
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -78,6 +79,19 @@ const PostForm = ({ initialData, onSubmit, isLoading }: PostFormProps) => {
     setPreview(null);
     setSelectedFile(null);
     if (fileInputRef.current) fileInputRef.current.value = '';
+  };
+
+  const handleEditorImageUpload = async (
+    blob: Blob | File,
+    callback: (url: string, altText: string) => void,
+  ) => {
+    try {
+      const imageUrl = await uploadImage(blob as File, 'content');
+      callback(imageUrl, 'image_content');
+    } catch (error) {
+      console.error('Editor Image Upload Error:', error);
+      alert('이미지 업로드 중 오류가 발생했습니다.');
+    }
   };
 
   return (
@@ -135,13 +149,20 @@ const PostForm = ({ initialData, onSubmit, isLoading }: PostFormProps) => {
 
       <div className="h-px bg-base-gray mb-8" />
 
-      <div className="prose prose-invert max-w-none">
+      <div
+        className="prose prose-invert max-w-none 
+                [&_.toastui-editor-defaultUI]:border-none 
+                [&_.toastui-editor-defaultUI]:rounded-xl 
+                [&_.toastui-editor-defaultUI]:overflow-hidden
+                border border-[#333] rounded-xl overflow-hidden focus-within:border-slate-500 transition-colors"
+      >
         <Editor
           ref={editorRef}
           initialValue={initialData?.content || ' '}
           previewStyle="vertical"
-          height="600px"
+          height="calc(100vh - 300px)"
           initialEditType="markdown"
+          hideModeSwitch={true}
           useCommandShortcut={true}
           theme="dark"
           onChange={handleEditorChange}
@@ -152,6 +173,9 @@ const PostForm = ({ initialData, onSubmit, isLoading }: PostFormProps) => {
             ['table', 'image', 'link'],
             ['code', 'codeblock'],
           ]}
+          hooks={{
+            addImageBlobHook: handleEditorImageUpload,
+          }}
         />
         {/* react-hook-form의 유효성 검사를 위해 숨겨진 input 등록 (선택사항) */}
         <input type="hidden" {...register('content')} />
@@ -160,18 +184,6 @@ const PostForm = ({ initialData, onSubmit, isLoading }: PostFormProps) => {
           <p className="text-red-500 text-sm mt-4">{errors.content.message}</p>
         )}
       </div>
-
-      {/* 기존의 textarea */}
-      {/* <div>
-        <textarea
-          {...register('content')}
-          placeholder="내용을 입력하세요..."
-          className="w-full h-125 bg-transparent text-lg border-none outline-none text-base-middle-gray resize-none"
-        />
-        {errors.content && (
-          <p className="text-red-500 text-sm mt-1">{errors.content.message}</p>
-        )}
-      </div> */}
 
       <div className="flex justify-end gap-x-3">
         <NavButton
