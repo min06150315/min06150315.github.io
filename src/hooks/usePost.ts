@@ -52,7 +52,6 @@ export const useUpdatePost = (postId: string | number) => {
 
 export const useDeletePost = () => {
   const queryClient = useQueryClient();
-  const navigate = useNavigate();
 
   return useMutation({
     mutationFn: deletePost,
@@ -62,7 +61,6 @@ export const useDeletePost = () => {
       queryClient.removeQueries({ queryKey: ['posts', String(postId)] });
       queryClient.removeQueries({ queryKey: ['posts', Number(postId)] });
       alert('Deleted');
-      navigate('/blog');
     },
   });
 };
