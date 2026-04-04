@@ -1,12 +1,9 @@
 import { Loading } from '@/components/ui';
 import { usePostDetail } from '@/hooks/usePost';
 import { useParams } from 'react-router-dom';
-import { formatDateLong, formatRelative } from '@/utils';
+import { formatRelative } from '@/utils';
 import CommentList from '@/features/comment/components/CommentList';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import rehypeHighlight from 'rehype-highlight';
-import 'highlight.js/styles/atom-one-dark.css';
+import PostViewer from './PostViewer';
 
 const BlogDetailContainer = () => {
   // const navigate = useNavigate();
@@ -32,12 +29,8 @@ const BlogDetailContainer = () => {
         <h1 className="text-4xl font-bold text-base-light-gray mb-4 leading-tight">
           {post.title}
         </h1>
-        <div className="flex items-center gap-x-2 text-sm text-slate-500">
+        <div className="flex items-center gap-x-2 text-sm text-more-gray">
           <span>{formatRelative(post.created_at)}</span>
-
-          <span className="">·</span>
-
-          <span className="italic">{formatDateLong(post.created_at)}</span>
         </div>
       </header>
 
@@ -53,14 +46,7 @@ const BlogDetailContainer = () => {
         <></>
       )}
 
-      <div className="prose prose-invert max-w-none text-base-middle-gray leading-relaxed text-lg mb-16">
-        <ReactMarkdown
-          remarkPlugins={[remarkGfm]}
-          rehypePlugins={[rehypeHighlight]}
-        >
-          {post.content}
-        </ReactMarkdown>
-      </div>
+      <PostViewer content={post.content} />
 
       <section id="comments">
         <CommentList postId={numericPostId} />
