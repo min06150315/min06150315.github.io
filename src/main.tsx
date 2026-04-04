@@ -7,13 +7,16 @@ import queryClient from './lib/queryClient.ts';
 import './styles/global.css';
 import App from './App.tsx';
 import { FloatingScrollButton } from './components/ui/button';
+import { HelmetProvider } from 'react-helmet-async';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider>
-        <App />
-      </ThemeProvider>
+      <HelmetProvider>
+        <ThemeProvider>
+          <App />
+        </ThemeProvider>
+      </HelmetProvider>
       {/* 테스트용 리액트 쿼리 개발 도구 */}
       {/* <ReactQueryDevtools initialIsOpen={false} /> */}
       <FloatingScrollButton />

@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { formatRelative } from '@/utils';
 import CommentList from '@/features/comment/components/CommentList';
 import PostViewer from './PostViewer';
+import SEO from '@/components/common/SEO';
 
 const BlogDetailContainer = () => {
   // const navigate = useNavigate();
@@ -24,34 +25,41 @@ const BlogDetailContainer = () => {
   if (!post) return <div>게시물을 찾을 수 없습니다.</div>;
 
   return (
-    <article className="max-w-3xl mx-auto pb-12 px-4">
-      <header className="mb-10">
-        <h1 className="text-4xl font-bold text-base-light-gray mb-4 leading-tight">
-          {post.title}
-        </h1>
-        <div className="flex items-center gap-x-2 text-sm text-more-gray">
-          <span>{formatRelative(post.created_at)}</span>
-        </div>
-      </header>
+    <>
+      <SEO
+        title={post.title}
+        description={post.content.slice(0, 150).replace(/[#*`]/g, '')}
+        image={post.thumbnail_image as string}
+      />
+      <article className="max-w-3xl mx-auto pb-12 px-4">
+        <header className="mb-10">
+          <h1 className="text-4xl font-bold text-base-light-gray mb-4 leading-tight">
+            {post.title}
+          </h1>
+          <div className="flex items-center gap-x-2 text-sm text-more-gray">
+            <span>{formatRelative(post.created_at)}</span>
+          </div>
+        </header>
 
-      {post.thumbnail_image ? (
-        <div className="relative aspect-video h-full mb-6">
-          <img
-            src={post.thumbnail_image}
-            alt={post.title}
-            className="w-full h-full object-cover"
-          />
-        </div>
-      ) : (
-        <></>
-      )}
+        {post.thumbnail_image ? (
+          <div className="relative aspect-video h-full mb-6">
+            <img
+              src={post.thumbnail_image}
+              alt={post.title}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        ) : (
+          <></>
+        )}
 
-      <PostViewer content={post.content} />
+        <PostViewer content={post.content} />
 
-      <section id="comments">
-        <CommentList postId={numericPostId} />
-      </section>
-    </article>
+        <section id="comments">
+          <CommentList postId={numericPostId} />
+        </section>
+      </article>
+    </>
   );
 };
 
