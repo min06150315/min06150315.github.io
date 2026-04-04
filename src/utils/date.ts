@@ -1,5 +1,3 @@
-// TODO: "1시간 전" 같은 기능 추가하기
-
 const formatBase = (dateInput: Date | string | null | undefined) => {
   const date = !dateInput ? new Date(NaN) : new Date(dateInput);
 
@@ -32,4 +30,30 @@ export const formatDateDot = (d: Date | string | null | undefined) => {
 export const formatDateDash = (d: Date | string | null | undefined) => {
   const { shortYear, month, day, isValid } = formatBase(d);
   return !isValid ? '-' : `${shortYear}-${month}-${day}`;
+};
+
+// 상대 시간 계산 함수
+export const formatRelative = (d: Date | string | null | undefined) => {
+  if (!d) return '-';
+  const date = new Date(d);
+  const now = new Date();
+
+  if (isNaN(date.getTime())) return '-';
+
+  const diffInSeconds = Math.floor((now.getTime() - date.getTime()) / 1000);
+
+  if (diffInSeconds < 60) return '방금 전';
+
+  const diffInMinutes = Math.floor(diffInSeconds / 60);
+  if (diffInMinutes < 60) return `${diffInMinutes}분 전`;
+
+  const diffInHours = Math.floor(diffInMinutes / 60);
+  if (diffInHours < 24) return `${diffInHours}시간 전`;
+
+  const diffInDays = Math.floor(diffInHours / 24);
+  if (diffInDays < 7) {
+    return `${diffInDays}일 전`;
+  }
+
+  return formatDateLong(d);
 };
