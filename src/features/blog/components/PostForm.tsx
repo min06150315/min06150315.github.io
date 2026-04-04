@@ -118,7 +118,7 @@ const PostForm = ({ initialData, onSubmit, isLoading }: PostFormProps) => {
             <button
               type="button"
               onClick={handleRemoveImage}
-              className="absolute top-3 right-3 p-1.5 bg-black/50 hover:bg-black rounded-full text-white transition-colors cursor-pointer"
+              className="absolute top-3 right-3 p-1.5 bg-black/50 hover:bg-black rounded-full text-white transition-colors"
             >
               <X size={20} />
             </button>

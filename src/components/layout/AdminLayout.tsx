@@ -27,7 +27,7 @@ export const AdminLayout = () => {
           </Link>
           <button
             onClick={signOut}
-            className="cursor-pointer hover:text-blue-400"
+            className="hover:text-blue-400"
           >
             로그아웃
           </button>

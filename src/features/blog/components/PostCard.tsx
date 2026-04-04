@@ -1,13 +1,39 @@
 import { Link } from 'react-router-dom';
-import { formatDateLong, removeMarkdown } from '@/utils';
+import { formatRelative, removeMarkdown } from '@/utils';
 import type { Post } from '@/types';
 
 interface PostCardProps {
   post: Post;
+  viewMode: 'grid' | 'list';
 }
 
-const PostCard = ({ post }: PostCardProps) => {
+const PostCard = ({ post, viewMode }: PostCardProps) => {
   const cleanContent = removeMarkdown(post.content || '');
+
+  if (viewMode === 'list') {
+    return (
+      <Link to={`/blog/${post.id}`} className="group block w-full">
+        <div className="flex gap-6 p-4 bg-less-black border border-hover-black rounded-xl hover:border-primary/50 transition-all">
+          <div className="w-40 aspect-video rounded-lg overflow-hidden shrink-0 bg-hover-black">
+            {post.thumbnail_image && (
+              <img src={post.thumbnail_image} className="..." />
+            )}
+          </div>
+          <div className="flex flex-col justify-center overflow-hidden">
+            <h2 className="text-lg font-bold text-white mb-2 line-clamp-1 group-hover:text-primary">
+              {post.title}
+            </h2>
+            <p className="text-sm text-gray-400 line-clamp-2 mb-2">
+              {removeMarkdown(post.content)}
+            </p>
+            <span className="text-xs text-base-white">
+              {formatRelative(post.created_at)}
+            </span>
+          </div>
+        </div>
+      </Link>
+    );
+  }
 
   return (
     <Link to={`/blog/${post.id}`} className="block">
@@ -26,17 +52,17 @@ const PostCard = ({ post }: PostCardProps) => {
           )}
         </div>
 
-        <div className="flex flex-col p-5 flex-grow">
+        <div className="flex flex-col p-5 grow">
           <h2 className="text-xl font-bold mb-3 text-white group-hover:text-primary transition-colors line-clamp-1">
             {post.title}
           </h2>
 
-          <p className="text-gray-400 text-sm line-clamp-3 leading-relaxed mb-4 flex-grow">
+          <p className="text-gray-400 text-sm line-clamp-3 leading-relaxed mb-4 grow">
             {cleanContent}
           </p>
 
-          <div className="flex items-center justify-between pt-4 border-t border-hover-black text-xs text-gray-500">
-            <span>{formatDateLong(String(post.created_at))}</span>
+          <div className="flex items-center justify-between pt-4 border-t border-hover-black text-xs text-base-white">
+            <span>{formatRelative(post.created_at)}</span>
           </div>
         </div>
       </div>

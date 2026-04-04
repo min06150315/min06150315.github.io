@@ -1,7 +1,7 @@
 import { Loading } from '@/components/ui';
 import { usePostDetail } from '@/hooks/usePost';
 import { useParams } from 'react-router-dom';
-import { formatDateLong } from '@/utils';
+import { formatDateLong, formatRelative } from '@/utils';
 import CommentList from '@/features/comment/components/CommentList';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -32,8 +32,12 @@ const BlogDetailContainer = () => {
         <h1 className="text-4xl font-bold text-base-light-gray mb-4 leading-tight">
           {post.title}
         </h1>
-        <div className="flex items-center text-sm text-slate-500">
-          <span>{formatDateLong(post.created_at)}</span>
+        <div className="flex items-center gap-x-2 text-sm text-slate-500">
+          <span>{formatRelative(post.created_at)}</span>
+
+          <span className="">·</span>
+
+          <span className="italic">{formatDateLong(post.created_at)}</span>
         </div>
       </header>
 
@@ -48,12 +52,7 @@ const BlogDetailContainer = () => {
       ) : (
         <></>
       )}
-      {/* 기본 본문 출력 */}
-      {/* <div className="whitespace-pre-wrap prose prose-invert max-w-none text-base-middle-gray leading-relaxed text-lg">
-        <p className="mb-4">{post.content}</p>
-      </div> */}
 
-      {/* 마크다운 본문 출력 */}
       <div className="prose prose-invert max-w-none text-base-middle-gray leading-relaxed text-lg mb-16">
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}

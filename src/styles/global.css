@@ -33,6 +33,10 @@
     format('woff2-variations');
 }
 
+button {
+  cursor: pointer;
+}
+
 .toastui-editor-dark,
 .toastui-editor-dark .toastui-editor-defaultUI {
   background-color: transparent !important;

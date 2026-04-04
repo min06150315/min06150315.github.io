@@ -2,10 +2,12 @@ import { useEffect, useState } from 'react';
 import { usePosts } from '@/hooks/usePost';
 import PostCard from './PostCard';
 import PostSkeleton from '@/components/ui/skeleton/PostSkeleton';
+import { useViewStore } from '@/store/useViewStore';
 
 const PostList = () => {
   const { data: posts, isLoading: isDataLoading } = usePosts();
   const [isTimerLoading, setIsTimerLoading] = useState(true);
+  const { viewMode } = useViewStore();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -29,14 +31,24 @@ const PostList = () => {
 
   // TODO: 게시물이 없을 때 에러 처리
   if (!posts || posts.length == 0) {
-    console.log('게시물이 없습니다.');
+    return (
+      <div className="flex flex-col items-center justify-center py-20 text-gray-500">
+        <p className="text-lg">아직 작성된 게시물이 없습니다.</p>
+      </div>
+    );
   }
   // TODO: 무한 스크롤 구현 (Intersection Observer 사용)
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div
+      className={
+        viewMode === 'grid'
+          ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'
+          : 'flex flex-col gap-4'
+      }
+    >
       {posts?.map((post) => (
-        <PostCard key={post.id} post={post} />
+        <PostCard key={post.id} post={post} viewMode={viewMode} />
       ))}
     </div>
   );

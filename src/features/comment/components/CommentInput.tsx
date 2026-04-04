@@ -53,7 +53,7 @@ const CommentInput = ({ postId }: { postId: number }) => {
         </p>
         <button
           onClick={signInWithGithub}
-          className="flex items-center justify-center gap-2 w-full py-3 px-4 bg-[#24292F] hover:bg-[#24292F]/90 text-white rounded-xl transition-all font-medium border border-[#333] cursor-pointer"
+          className="flex items-center justify-center gap-2 w-full py-3 px-4 bg-[#24292F] hover:bg-[#24292F]/90 text-white rounded-xl transition-all font-medium border border-[#333]"
         >
           <Github className="w-5 h-5" />
           <span>GitHub으로 시작하기</span>

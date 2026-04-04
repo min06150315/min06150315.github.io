@@ -1,4 +1,4 @@
-import { formatDateLong } from '@/utils'; // 기존에 만드신 날짜 함수 활용
+import { formatRelative } from '@/utils'; // 기존에 만드신 날짜 함수 활용
 import type { Comment } from '@/types';
 
 interface CommentItemProps {
@@ -24,10 +24,10 @@ const CommentItem = ({ comment }: CommentItemProps) => {
             {comment.author_name}
           </span>
           <span className="text-gray-500 text-xs">
-            {formatDateLong(comment.created_at)}
+            {formatRelative(comment.created_at)}
           </span>
         </div>
-        <p className="text-gray-300 text-sm leading-relaxed break-words">
+        <p className="text-gray-300 text-sm leading-relaxed wrap-break-word">
           {comment.content}
         </p>
       </div>
