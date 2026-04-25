@@ -7,7 +7,7 @@ interface CommentItemProps {
 
 const CommentItem = ({ comment }: CommentItemProps) => {
   return (
-    <div className="flex gap-4 p-5 bg-less-black border border-hover-black rounded-xl shadow-sm mb-4 transition-all hover:border-[#333]">
+    <div className="flex gap-4 p-5 bg-less-black border border-[#333] border-hover-black rounded-xl shadow-sm mb-4 transition-all hover:border-[#333]">
       {/* 작성자 아바타 */}
       <div className="flex-shrink-0">
         <img

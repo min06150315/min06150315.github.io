@@ -27,7 +27,7 @@ const CommentList = ({ postId }: CommentListProps) => {
   }
 
   return (
-    <div className="mt-16 pt-10 border-t border-hover-black">
+    <div className="mt-16 pt-10 border-t border-[#333] border-hover-black">
       <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
         댓글{' '}
         <span className="text-primary text-sm">{comments?.length || 0}</span>

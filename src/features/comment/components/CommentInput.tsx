@@ -47,7 +47,7 @@ const CommentInput = ({ postId }: { postId: number }) => {
 
   if (!user) {
     return (
-      <div className="p-8 bg-less-black border border-hover-black rounded-xl text-center mb-10">
+      <div className="p-8 bg-less-black border border-[#333] border-hover-black rounded-xl text-center mb-10">
         <p className="text-slate-500 text-sm mb-4">
           로그인하고 의견을 남겨보세요!
         </p>
@@ -68,7 +68,7 @@ const CommentInput = ({ postId }: { postId: number }) => {
         <textarea
           {...register('content')}
           placeholder={`${user.user_metadata.full_name || '닉네임'}님, 댓글을 남겨주세요...`}
-          className="w-full h-28 p-4 bg-[#161616] border border-hover-black rounded-xl text-slate-200 text-base outline-none focus:border-slate-700 focus:bg-less-black transition-all resize-none placeholder:text-slate-600"
+          className="w-full h-28 p-4 bg-[#161616] border border-[#333] border-hover-black rounded-xl text-slate-200 text-base outline-none focus:border-slate-700 focus:bg-less-black transition-all resize-none placeholder:text-slate-600"
         />
         {errors.content && (
           <p className="text-red-500 text-xs mt-1 ml-1">

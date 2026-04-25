@@ -1,38 +1,66 @@
 import { Link } from 'react-router-dom';
-import { NavButton } from '@/components/ui';
-// import { useTheme } from '@/hooks/useTheme';
-// import { IconLogo, Moon, Sun } from '../ui/icons/NavIcons';
-import { IconLogo, Moon } from '@/components/ui/icons/NavIcons';
-import { Search } from 'lucide-react';
-import { signOut } from '@/api/auth';
+import { useTheme } from '@/hooks/useTheme';
+import { Moon, Sun, Search } from 'lucide-react';
 
 const Header = () => {
-  // const { theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
 
   return (
-    <header className="sticky top-0 z-50 w-full backdrop-blur-md">
-      <div className="max-w-5xl mx-auto h-16 px-4 flex items-center justify-between">
-        <Link
-          to="/"
-          className="flex items-center gap-x-2 group cursor-pointer px-3 py-2 -ml-3 rounded-md hover:bg-hover-black transition-colors"
-        >
-          <IconLogo />
-        </Link>
+    <header className="sticky top-0 w-full z-50 bg-[#131313]/80 backdrop-blur-md border-b border-white/10 shadow-xl shadow-blue-500/5">
+      <nav className="flex justify-between items-center px-8 h-20 max-w-7xl mx-auto">
+        <div className="text-xl font-extrabold tracking-tighter text-neutral-100 font-headline">
+          <Link to="/">MIN.DEV</Link>
+        </div>
 
-        <nav className="flex items-center gap-x-2 text-sm font-medium">
-          <NavButton to="/blog">Blog</NavButton>
-          <NavButton to="/about">About</NavButton>
-          <NavButton to="/serach">
-            <Search size={20} strokeWidth={2} className="cursor-pointer" />
-          </NavButton>
-          {/* <NavButton onClick={toggleTheme} className="pl-2 pr-2">
-            {theme === 'dark' ? <Moon /> : <Sun />}
-          </NavButton> */}
-          <NavButton onClick={signOut} className="pl-2 pr-2">
-            <Moon />
-          </NavButton>
-        </nav>
-      </div>
+        <ul className="hidden md:flex items-center gap-8 font-['Manrope'] font-semibold tracking-wide uppercase text-xs">
+          <li>
+            <Link
+              className="text-neutral-400 hover:text-blue-500 transition-all duration-300 active:scale-95"
+              to="/"
+            >
+              HOME
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="text-neutral-400 hover:text-blue-500 transition-all duration-300 active:scale-95"
+              to="/blog"
+            >
+              BLOG
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="text-neutral-400 hover:text-blue-500 transition-all duration-300 active:scale-95"
+              to="/about"
+            >
+              ABOUT
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="text-neutral-400 hover:text-blue-500 transition-all duration-300 active:scale-95"
+              to="/contact"
+            >
+              CONTACT
+            </Link>
+          </li>
+        </ul>
+
+        {/* Trailing Actions: 우측 버튼 레이아웃 및 트랜지션 적용 */}
+        <div className="flex items-center gap-4 text-neutral-400">
+          <button className="hover:text-blue-400 transition-all duration-300">
+            <Search size={24} /> {/* Stitch의 material-icon 크기(24px) 반영 */}
+          </button>
+          <button
+            onClick={toggleTheme}
+            className="hover:text-blue-400 transition-all duration-300 active:scale-95"
+          >
+            {/* 테마에 따라 아이콘만 교체, 스타일은 Stitch 버튼 스타일 유지 */}
+            {theme === 'dark' ? <Moon size={24} /> : <Sun size={24} />}
+          </button>
+        </div>
+      </nav>
     </header>
   );
 };
