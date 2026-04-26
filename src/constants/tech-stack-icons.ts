@@ -53,6 +53,18 @@ export const TECH_STACK_ICONS = [
     icon: 'vscode-icons:file-type-prettier',
   },
   {
+    name: 'React Hook Form',
+    icon: 'https://jzbektkgebxurmpwwxor.supabase.co/storage/v1/object/public/tech-stack-icon/react-hook-form.png',
+  },
+  {
+    name: 'Zod',
+    icon: 'https://jzbektkgebxurmpwwxor.supabase.co/storage/v1/object/public/tech-stack-icon/zod.png',
+  },
+  {
+    name: 'Storybook',
+    icon: 'logos:storybook-icon',
+  },
+  {
     name: 'Vercel',
     icon: 'vscode-icons:file-type-light-vercel',
   },
@@ -69,12 +81,20 @@ export const TECH_STACK_ICONS = [
     icon: 'devicon:flutter',
   },
   {
+    name: 'Firebase',
+    icon: 'https://jzbektkgebxurmpwwxor.supabase.co/storage/v1/object/public/tech-stack-icon/firebase.png',
+  },
+  {
     name: 'Node.js',
     icon: 'devicon:nodejs',
   },
   {
     name: 'Docker',
     icon: 'skill-icons:docker',
+  },
+  {
+    name: 'GraphQL',
+    icon: 'logos:graphql',
   },
   {
     name: 'Spring',
@@ -109,10 +129,6 @@ export const TECH_STACK_ICONS = [
     icon: 'devicon:slack',
   },
   // {
-  //   name: 'Firebase',
-  //   icon: 'devicon:vitejs',
-  // },
-  // {
   //   name: 'AWS',
   //   icon: 'skill-icons:aws-light',
   // },
@@ -129,20 +145,8 @@ export const TECH_STACK_ICONS = [
   //   icon: 'skill-icons:vuejs-light',
   // },
   // {
-  //   name: 'Storybook',
-  //   icon: 'devicon:storybook',
-  // },
-  // {
   //   name: 'Three.js',
   //   icon: 'skill-icons:threejs-light',
-  // },
-  // {
-  //   name: 'React Hook Form',
-  //   icon: '',
-  // },
-  // {
-  //   name: 'Zod',
-  //   icon: '',
   // },
   // {
   //   name: 'Kubernetes',
@@ -155,9 +159,5 @@ export const TECH_STACK_ICONS = [
   // {
   //   name: 'Prometheus',
   //   icon: 'skill-icons:prometheus',
-  // },
-  // {
-  //   name: 'GraphQL',
-  //   icon: 'skill-icons:graphql-light',
   // },
 ];

@@ -43,12 +43,20 @@ const HomePage = () => {
               className="group p-8 bg-stitch-surface-container-lowest rounded-2xl flex flex-col items-center justify-center gap-4 transition-all hover:bg-stitch-surface-container-highest hover:-translate-y-1 border border-white/5"
             >
               <div className="w-12 h-12 flex items-center justify-center">
-                <Icon
-                  icon={tech.icon}
-                  className="text-4xl opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all"
-                />
+                {tech.icon.startsWith('https') ? (
+                  <img
+                    src={tech.icon}
+                    alt={tech.name}
+                    className="w-10 h-10 object-contain opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all"
+                  />
+                ) : (
+                  <Icon
+                    icon={tech.icon}
+                    className="text-4xl opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all"
+                  />
+                )}
               </div>
-              <span className="text-sm font-medium text-stitch-on-surface-variant group-hover:text-stitch-primary transition-colors font-body">
+              <span className="text-xs font-medium text-stitch-on-surface-variant group-hover:text-stitch-primary transition-colors font-body">
                 {tech.name}
               </span>
             </div>
