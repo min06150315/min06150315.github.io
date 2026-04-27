@@ -1,8 +1,13 @@
 import { NavLink } from 'react-router-dom';
 import { useTheme } from '@/hooks/useTheme';
-import { Moon, Sun, Search } from 'lucide-react';
+import { Moon, Sun } from 'lucide-react';
+import SearchButton from '../ui/button/SearchButton';
 
-const Header = () => {
+interface NavbarProps {
+  onSearchOpen: () => void;
+}
+
+const Header = ({ onSearchOpen }: NavbarProps) => {
   const { theme, toggleTheme } = useTheme();
 
   const navLinkStyle = ({ isActive }: { isActive: boolean }) =>
@@ -46,9 +51,7 @@ const Header = () => {
         </ul>
 
         <div className="flex items-center gap-4 text-neutral-400">
-          <button className="hover:text-blue-400 transition-all duration-300">
-            <Search size={24} />
-          </button>
+          <SearchButton onSearchOpen={onSearchOpen} />
           <button
             onClick={toggleTheme}
             className="hover:text-blue-400 transition-all duration-300 active:scale-95"

@@ -52,3 +52,20 @@ export const deletePost = async (id: string | number): Promise<void> => {
 
   if (error) throw new Error(error.message);
 };
+
+export const searchPosts = async (query: string) => {
+  const { data, error } = await supabase
+    .from('posts')
+    .select('*')
+    .textSearch('fts', query, {
+      type: 'websearch',
+      config: 'simple',
+    })
+    .order('created_at', { ascending: false });
+
+  if (error) {
+    console.error('Search Error: ', error);
+    return [];
+  }
+  return data;
+};
