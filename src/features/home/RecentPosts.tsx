@@ -86,7 +86,7 @@ const RecentPosts = () => {
               <span className="text-[10px] font-bold uppercase tracking-widest text-sky-400 mb-2 block">
                 {post.category}
               </span>
-              <h3 className="text-xl font-bold text-white mb-3 group-hover:text-sky-400 transition-colors">
+              <h3 className="text-[17px] font-bold text-white mb-3 group-hover:text-sky-400 transition-colors">
                 {post.title}
               </h3>
               <p className="text-gray-400 text-sm line-clamp-2 mb-4">

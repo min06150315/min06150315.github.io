@@ -1,4 +1,4 @@
-import { Loading } from '@/components/ui';
+import LoadingSpinner from '@/components/ui/loading/LoadingSpinner';
 import PostForm, {
   type PostFormData,
 } from '@/features/blog/components/PostForm';
@@ -32,7 +32,7 @@ const BlogEditPage = () => {
     }
   };
 
-  if (isFetching) return <Loading />;
+  if (isFetching) return <LoadingSpinner />;
   if (!post) return <div>게시글을 찾을 수 없습니다.</div>;
 
   return (

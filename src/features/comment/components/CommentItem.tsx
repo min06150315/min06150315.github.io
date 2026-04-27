@@ -7,9 +7,9 @@ interface CommentItemProps {
 
 const CommentItem = ({ comment }: CommentItemProps) => {
   return (
-    <div className="flex gap-4 p-5 bg-less-black border border-[#333] border-hover-black rounded-xl shadow-sm mb-4 transition-all hover:border-[#333]">
+    <div className="flex gap-4 p-5 bg-less-black border border-hover-black rounded-xl shadow-sm mb-4 transition-all hover:border-[#333]">
       {/* 작성자 아바타 */}
-      <div className="flex-shrink-0">
+      <div className="shrink-0">
         <img
           src={comment.author_avatar || '/default-avatar.png'}
           alt={comment.author_name}
@@ -18,7 +18,7 @@ const CommentItem = ({ comment }: CommentItemProps) => {
       </div>
 
       {/* 댓글 콘텐츠 */}
-      <div className="flex flex-col flex-grow min-w-0">
+      <div className="flex flex-col grow min-w-0">
         <div className="flex items-center justify-between mb-2">
           <span className="font-bold text-white text-sm truncate">
             {comment.author_name}

@@ -13,7 +13,7 @@ const PostCard = ({ post, viewMode }: PostCardProps) => {
   if (viewMode === 'list') {
     return (
       <Link to={`/blog/${post.id}`} className="group block w-full">
-        <div className="flex gap-6 p-4 bg-less-black border border-[#333] border-hover-black rounded-xl hover:border-primary/50 transition-all">
+        <div className="flex gap-6 p-4 bg-less-black border  border-hover-black rounded-xl hover:border-primary/50 transition-all">
           <div className="w-40 aspect-video rounded-lg overflow-hidden shrink-0 bg-hover-black">
             {post.thumbnail_image && (
               <img src={post.thumbnail_image} className="..." />
@@ -37,7 +37,7 @@ const PostCard = ({ post, viewMode }: PostCardProps) => {
 
   return (
     <Link to={`/blog/${post.id}`} className="block">
-      <div className="group flex flex-col h-full bg-less-black border border-[#333] border-hover-black rounded-xl overflow-hidden hover:border-primary/50 hover:-translate-y-2 transition-all duration-300 ease-out shadow-lg">
+      <div className="group flex flex-col h-full bg-less-black border  border-hover-black rounded-xl overflow-hidden hover:border-primary/50 hover:-translate-y-2 transition-all duration-300 ease-out shadow-lg">
         <div className="relative aspect-video w-full overflow-hidden bg-hover-black">
           {post.thumbnail_image ? (
             <img
