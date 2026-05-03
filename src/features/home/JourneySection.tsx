@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-export const JourneySection = () => {
+const JourneySection = () => {
   const journeys = [
     {
       date: '2027.03 ~',
@@ -37,9 +37,9 @@ export const JourneySection = () => {
           {journeys.map((journey, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              initial={{ opacity: 0, x: -10 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
               className="relative pl-8 mb-16 last:mb-0"
             >
               <div
@@ -68,3 +68,5 @@ export const JourneySection = () => {
     </section>
   );
 };
+
+export default JourneySection;
