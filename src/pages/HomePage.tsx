@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import { TECH_STACK_ICONS } from '@/constants/tech-stack-icons';
 import RecentPosts from '@/features/home/RecentPosts';
+import { JourneySection } from '@/features/home/JourneySection';
 
 const HomePage = () => {
   return (
@@ -64,7 +65,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* 경력 */}
+      <JourneySection />
 
       <RecentPosts />
 

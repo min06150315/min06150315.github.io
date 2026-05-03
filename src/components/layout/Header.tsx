@@ -13,12 +13,12 @@ const Header = ({ onSearchOpen }: NavbarProps) => {
   const navLinkStyle = ({ isActive }: { isActive: boolean }) =>
     `transition-all duration-300 active:scale-95 ${
       isActive
-        ? 'text-blue-500 font-bold'
-        : 'text-neutral-400 hover:text-blue-500'
+        ? 'text-primary font-bold'
+        : 'text-neutral-400 hover:text-primary'
     }`;
 
   return (
-    <header className="sticky top-0 w-full z-50 bg-[#131313]/80 backdrop-blur-md border-b border-white/10 shadow-xl shadow-blue-500/5">
+    <header className="sticky top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-white/10 shadow-xl shadow-blue-500/5">
       <nav className="flex justify-between items-center px-8 h-20 max-w-7xl mx-auto">
         <div className="text-xl font-extrabold tracking-tighter text-neutral-100 font-headline">
           <NavLink to="/" className="flex items-center gap-2">
