@@ -7,11 +7,8 @@ const BlogEditor = () => {
   const editorRef = useRef<Editor>(null);
 
   const handleSave = () => {
-    // 에디터에 입력된 내용을 마크다운 형식으로 가져오기
     const content = editorRef.current?.getInstance().getMarkdown();
     console.log('저장할 내용:', content);
-
-    // 이후 Supabase DB에 저장하는 로직(insert)을 여기에 연결하면 됩니다.
   };
 
   return (

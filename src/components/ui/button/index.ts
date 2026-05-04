@@ -1,3 +1,2 @@
-export * from './Button';
 export * from './NavButton';
-export * from './FloatingScrollButton';
+export * from './SearchButton';

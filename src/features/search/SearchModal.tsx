@@ -13,7 +13,7 @@ const SearchModal = ({
   isOpen: boolean;
   onClose: () => void;
 }) => {
-  const navigate = useNavigate(); // 2. navigate 함수 선언
+  const navigate = useNavigate();
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<Post[]>([]);
 
@@ -40,7 +40,6 @@ const SearchModal = ({
       return;
     }
 
-    // 2. 입력이 시작되면 로딩 시작
     setIsLoading(true);
 
     const timer = setTimeout(async () => {
@@ -56,7 +55,6 @@ const SearchModal = ({
     return () => clearTimeout(timer);
   }, [query]);
 
-  // 2. 이동 로직 함수화
   const handleNavigate = (id: string | number | undefined) => {
     if (id === undefined) return;
 
@@ -64,7 +62,6 @@ const SearchModal = ({
     onClose();
   };
 
-  // 3. 키보드 핸들러 추가
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (results.length === 0) return;
 

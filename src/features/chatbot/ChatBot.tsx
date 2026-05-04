@@ -44,7 +44,6 @@ const ChatBot = () => {
 
       const data = await response.json();
 
-      // 에러 핸들링 포함
       if (data.error) {
         setMessages((prev) => [
           ...prev,
@@ -58,7 +57,7 @@ const ChatBot = () => {
         ...prev,
         {
           role: 'bot',
-          text: '연결이 잠시 불안정해요. 다시 시도해 주세요! 📡',
+          text: '연결이 잠시 불안정해요. 다시 시도해 주세요!',
           isError: true,
           error,
         },
