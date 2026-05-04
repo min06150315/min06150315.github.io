@@ -6,8 +6,9 @@ import { ThemeProvider } from './hooks/useTheme.tsx';
 import queryClient from './lib/queryClient.ts';
 import './styles/global.css';
 import App from './App.tsx';
-import { FloatingScrollButton } from './components/ui/button';
+// import { FloatingScrollButton } from './components/ui/button';
 import { HelmetProvider } from 'react-helmet-async';
+import ChatBot from '@/features/chatbot/ChatBot.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -17,9 +18,8 @@ createRoot(document.getElementById('root')!).render(
           <App />
         </ThemeProvider>
       </HelmetProvider>
-      {/* 테스트용 리액트 쿼리 개발 도구 */}
-      {/* <ReactQueryDevtools initialIsOpen={false} /> */}
-      <FloatingScrollButton />
+      <ChatBot />
+      {/* <FloatingScrollButton /> */}
     </QueryClientProvider>
   </StrictMode>,
 );
