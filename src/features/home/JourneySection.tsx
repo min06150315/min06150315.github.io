@@ -27,7 +27,7 @@ const JourneySection = () => {
   return (
     <section className="py-20 px-6">
       <div className="max-w-3xl mx-auto">
-        <h2 className="text-4xl font-bold text-white mb-16 tracking-tight">
+        <h2 className="text-4xl font-bold text-on-surface mb-16 tracking-tight">
           Journey
         </h2>
 
@@ -48,7 +48,7 @@ const JourneySection = () => {
               />
 
               <div className="mb-2">
-                <span className="text-sm font-mono text-gray-500 tracking-tighter uppercase">
+                <span className="text-sm font-mono text-on-surface-variant tracking-tighter uppercase">
                   {journey.date}
                 </span>
               </div>

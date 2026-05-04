@@ -42,18 +42,18 @@ const CommentInput = ({ postId }: { postId: number }) => {
 
   if (authLoading)
     return (
-      <div className="h-24 animate-pulse bg-less-black rounded-xl mb-10" />
+      <div className="h-24 animate-pulse bg-surface-low rounded-xl mb-10" />
     );
 
   if (!user) {
     return (
-      <div className="p-8 bg-less-black border border-hover-black rounded-xl text-center mb-10">
+      <div className="p-8 bg-surface-low border border-hover-black rounded-xl text-center mb-10">
         <p className="text-slate-500 text-sm mb-4">
           로그인하고 의견을 남겨보세요!
         </p>
         <button
           onClick={signInWithGithub}
-          className="flex items-center justify-center gap-2 w-full py-3 px-4 bg-[#24292F] hover:bg-[#24292F]/90 text-white rounded-xl transition-all font-medium border border-hover-black"
+          className="flex items-center justify-center gap-2 w-full py-3 px-4 bg-github hover:bg-github/90 text-on-surface rounded-xl transition-all font-medium border border-hover-black"
         >
           <Github className="w-5 h-5" />
           <span>GitHub으로 시작하기</span>
@@ -68,10 +68,10 @@ const CommentInput = ({ postId }: { postId: number }) => {
         <textarea
           {...register('content')}
           placeholder={`${user.user_metadata.full_name || '닉네임'}님, 댓글을 남겨주세요...`}
-          className="w-full h-28 p-4 bg-[#161616] border border-hover-black rounded-xl text-slate-200 text-base outline-none focus:border-slate-700 focus:bg-less-black transition-all resize-none placeholder:text-slate-600"
+          className="w-full h-28 p-4 bg-input-dark border border-hover-black rounded-xl text-on-surface text-base outline-none focus:border-outline focus:bg-surface-container transition-all resize-none placeholder:text-on-surface-variant"
         />
         {errors.content && (
-          <p className="text-red-500 text-xs mt-1 ml-1">
+          <p className="text-error text-xs mt-1 ml-1">
             {errors.content.message}
           </p>
         )}

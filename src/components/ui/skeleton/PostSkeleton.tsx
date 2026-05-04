@@ -1,6 +1,6 @@
 const PostSkeleton = () => {
   return (
-    <div className="flex flex-col h-full bg-less-black border border-hover-black rounded-xl overflow-hidden shadow-lg">
+    <div className="flex flex-col h-full bg-surface-low border border-hover-black rounded-xl overflow-hidden shadow-lg">
       <div className="relative aspect-video w-full overflow-hidden bg-hover-black animate-pulse" />
 
       <div className="flex flex-col p-5 grow">

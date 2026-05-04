@@ -25,7 +25,7 @@ const AdminContainer = () => {
 
       <div className="border border-hover-black rounded-lg overflow-hidden">
         <table className="w-full text-left text-sm">
-          <thead className="bg-less-black text-gray-400 uppercase">
+          <thead className="bg-surface-low text-gray-400 uppercase">
             <tr>
               <th className="px-6 py-3">Title</th>
               <th className="px-6 py-3">Date</th>

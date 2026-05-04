@@ -13,20 +13,20 @@ const PostCard = ({ post, viewMode }: PostCardProps) => {
   if (viewMode === 'list') {
     return (
       <Link to={`/blog/${post.id}`} className="group block w-full">
-        <div className="flex gap-6 p-4 bg-less-black border  border-hover-black rounded-xl hover:border-primary/50 transition-all">
+        <div className="flex gap-6 p-4 bg-surface-low border  border-hover-black rounded-xl hover:border-primary/50 transition-all">
           <div className="w-40 aspect-video rounded-lg overflow-hidden shrink-0 bg-hover-black">
             {post.thumbnail_image && (
               <img src={post.thumbnail_image} className="..." />
             )}
           </div>
           <div className="flex flex-col justify-center overflow-hidden">
-            <h2 className="text-lg font-bold text-white mb-2 line-clamp-1 group-hover:text-primary">
+            <h2 className="text-lg font-bold text-on-surface mb-2 line-clamp-1 group-hover:text-primary">
               {post.title}
             </h2>
-            <p className="text-sm text-gray-400 line-clamp-2 mb-2">
+            <p className="text-sm text-on-surface-variant line-clamp-2 mb-2">
               {removeMarkdown(post.content)}
             </p>
-            <span className="text-xs text-base-white">
+            <span className="text-xs text-on-surface">
               {formatRelative(post.created_at)}
             </span>
           </div>
@@ -37,7 +37,7 @@ const PostCard = ({ post, viewMode }: PostCardProps) => {
 
   return (
     <Link to={`/blog/${post.id}`} className="block">
-      <div className="group flex flex-col h-full bg-less-black border  border-hover-black rounded-xl overflow-hidden hover:border-primary/50 hover:-translate-y-2 transition-all duration-300 ease-out shadow-lg">
+      <div className="group flex flex-col h-full bg-surface-low border  border-hover-black rounded-xl overflow-hidden hover:border-primary/50 hover:-translate-y-2 transition-all duration-300 ease-out shadow-lg">
         <div className="relative aspect-video w-full overflow-hidden bg-hover-black">
           {post.thumbnail_image ? (
             <img
@@ -46,22 +46,22 @@ const PostCard = ({ post, viewMode }: PostCardProps) => {
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
           ) : (
-            <div className="w-full h-full flex items-center justify-center text-[#333] font-bold text-lg select-none">
+            <div className="w-full h-full flex items-center justify-center text-border-muted font-bold text-lg select-none">
               {'이미지가 없습니다.'}
             </div>
           )}
         </div>
 
         <div className="flex flex-col p-5 grow">
-          <h2 className="text-xl font-bold mb-3 text-white group-hover:text-primary transition-colors line-clamp-1">
+          <h2 className="text-xl font-bold mb-3 text-on-surface group-hover:text-primary transition-colors line-clamp-1">
             {post.title}
           </h2>
 
-          <p className="text-gray-400 text-sm line-clamp-3 leading-relaxed mb-4 grow">
+          <p className="text-on-surface-variant text-sm line-clamp-3 leading-relaxed mb-4 grow">
             {cleanContent}
           </p>
 
-          <div className="flex items-center justify-between pt-4 border-t border-hover-black text-xs text-base-white">
+          <div className="flex items-center justify-between pt-4 border-t border-hover-black text-xs text-on-surface">
             <span>{formatRelative(post.created_at)}</span>
           </div>
         </div>

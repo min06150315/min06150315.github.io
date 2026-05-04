@@ -26,7 +26,7 @@ export const NavButton = ({
   const variants = {
     black: 'hover:bg-hover-black',
     primary:
-      'px-4 py-1.5 bg-primary hover:bg-primary-hover text-white transition-all',
+      'px-4 py-1.5 bg-primary-hover hover:bg-primary-hover text-white transition-all',
   };
 
   const combinedClassName = cn(baseStyles, variants[variant], className);

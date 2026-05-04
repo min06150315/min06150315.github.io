@@ -118,7 +118,7 @@ const PostForm = ({ initialData, onSubmit, isLoading }: PostFormProps) => {
             <button
               type="button"
               onClick={handleRemoveImage}
-              className="absolute top-3 right-3 p-1.5 bg-black/50 hover:bg-black rounded-full text-white transition-colors"
+              className="absolute top-3 right-3 p-1.5 bg-on-surface/50 hover:bg-on-surface rounded-full text-surface-container-lowest transition-colors"
             >
               <X size={20} />
             </button>
@@ -127,7 +127,7 @@ const PostForm = ({ initialData, onSubmit, isLoading }: PostFormProps) => {
           <button
             type="button"
             onClick={() => fileInputRef.current?.click()}
-            className="w-full aspect-video rounded-xl border-2 border-dashed border-hover-black flex flex-col items-center justify-center gap-y-3 text-slate-500 hover:bg-[#161616] hover:border-slate-700 transition-all"
+            className="w-full aspect-video rounded-xl border-2 border-dashed border-hover-black flex flex-col items-center justify-center gap-y-3 text-on-surface-variant hover:bg-input-dark hover:border-outline transition-all"
           >
             <Image size={40} strokeWidth={1.5} />
             <span className="text-sm">썸네일 이미지 추가</span>
@@ -140,10 +140,10 @@ const PostForm = ({ initialData, onSubmit, isLoading }: PostFormProps) => {
           {...register('title')}
           type="text"
           placeholder="제목을 입력하세요"
-          className="w-full bg-transparent text-4xl font-bold border-none outline-none --color-base-light-gray placeholder:text-slate-600 "
+          className="w-full bg-transparent text-4xl font-bold border-none outline-none --color-on-surface placeholder:text-slate-600 "
         />
         {errors.title && (
-          <p className="text-red-500 text-sm mt-2">{errors.title.message}</p>
+          <p className="text-error text-sm mt-2">{errors.title.message}</p>
         )}
       </div>
 
@@ -154,7 +154,7 @@ const PostForm = ({ initialData, onSubmit, isLoading }: PostFormProps) => {
                 [&_.toastui-editor-defaultUI]:border-none 
                 [&_.toastui-editor-defaultUI]:rounded-xl 
                 [&_.toastui-editor-defaultUI]:overflow-hidden
-                border border-[#333] rounded-xl overflow-hidden focus-within:border-slate-500 transition-colors"
+                border border-border-muted rounded-xl overflow-hidden focus-within:border-outline transition-colors"
       >
         <Editor
           ref={editorRef}
@@ -181,7 +181,7 @@ const PostForm = ({ initialData, onSubmit, isLoading }: PostFormProps) => {
         <input type="hidden" {...register('content')} />
 
         {errors.content && (
-          <p className="text-red-500 text-sm mt-4">{errors.content.message}</p>
+          <p className="text-error text-sm mt-4">{errors.content.message}</p>
         )}
       </div>
 

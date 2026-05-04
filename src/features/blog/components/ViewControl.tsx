@@ -10,8 +10,8 @@ const ViewControl = () => {
         onClick={() => setViewMode('grid')}
         className={`p-2 rounded-md transition-colors ${
           viewMode === 'grid'
-            ? 'bg-primary text-white'
-            : 'bg-hover-black text-gray-400'
+            ? 'bg-primary text-surface-low'
+            : 'bg-hover-black text-primary'
         }`}
       >
         <LayoutGrid size={20} />
@@ -20,8 +20,8 @@ const ViewControl = () => {
         onClick={() => setViewMode('list')}
         className={`p-2 rounded-md transition-colors ${
           viewMode === 'list'
-            ? 'bg-primary text-white'
-            : 'bg-hover-black text-gray-400'
+            ? 'bg- text-surface-low'
+            : 'bg-hover-black text-primary'
         }`}
       >
         <List size={20} />

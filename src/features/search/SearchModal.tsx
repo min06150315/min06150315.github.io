@@ -97,7 +97,7 @@ const SearchModal = ({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-100"
+            className="fixed inset-0 bg-surface/60 backdrop-blur-sm z-100"
           />
 
           <motion.div
@@ -105,16 +105,16 @@ const SearchModal = ({
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: -20 }}
             onKeyDown={handleKeyDown}
-            className="fixed left-1/2 top-[20%] -translate-x-1/2 w-full max-w-xl bg-[#121212] border border-gray-800 rounded-2xl shadow-2xl z-101 overflow-hidden"
+            className="fixed left-1/2 top-[20%] -translate-x-1/2 w-full max-w-xl bg-surface-container-low border border-outline-variant rounded-2xl shadow-2xl z-101 overflow-hidden"
           >
-            <div className="flex items-center px-6 py-4 border-b border-gray-800">
-              <Search className="text-sky-400 mr-4" size={20} />
+            <div className="flex items-center px-6 py-4 border-b border-outline-variant">
+              <Search className="text-primary mr-4" size={20} />
               <input
                 autoFocus
                 placeholder="포스트를 검색하세요"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                className="flex-1 bg-transparent text-white outline-none text-lg"
+                className="flex-1 bg-transparent text-on-surface outline-none text-lg"
               />
               <div className="flex items-center justify-center w-5 h-5">
                 {isLoading ? (
@@ -122,7 +122,7 @@ const SearchModal = ({
                 ) : (
                   <button
                     onClick={onClose}
-                    className="text-gray-500 hover:text-white"
+                    className="text-on-surface-variant hover:text-on-surface"
                   >
                     <X size={20} />
                   </button>
@@ -137,7 +137,7 @@ const SearchModal = ({
                     key={post.id}
                     onClick={() => handleNavigate(String(post.id))} // 클릭 시 이동
                     className={`flex items-center px-4 py-3 rounded-xl cursor-pointer transition-colors group
-                      ${index === selectedIndex ? 'bg-sky-500/10' : 'hover:bg-white/5'}
+                      ${index === selectedIndex ? 'bg-primary/10' : 'hover:bg-on-surface/5'}
                     `}
                   >
                     <FileText
@@ -145,27 +145,31 @@ const SearchModal = ({
                       size={18}
                     />
                     <div>
-                      <h4 className="text-white font-medium">{post.title}</h4>
-                      <p className="text-gray-500 text-xs">{post.category}</p>
+                      <h4 className="text-on-surface font-medium">
+                        {post.title}
+                      </h4>
+                      <p className="text-on-surface-variant text-xs">
+                        {post.category}
+                      </p>
                     </div>
                   </div>
                 ))
               ) : !isLoading && query ? (
-                <div className="py-10 text-center text-gray-500 text-sm">
+                <div className="py-10 text-center text-on-surface-variant text-sm">
                   No results found.
                 </div>
               ) : (
                 !isLoading && (
-                  <div className="py-4 px-4 text-gray-600 text-xs uppercase tracking-widest font-bold">
+                  <div className="py-4 px-4 text-on-surface-variant text-xs uppercase tracking-widest font-bold">
                     Recent Searches
                   </div>
                 )
               )}
             </div>
 
-            <div className="px-6 py-3 bg-gray-900/50 border-t border-gray-800 flex justify-between text-xs text-gray-500">
+            <div className="px-6 py-3 bg-surface-container-high/50 border-t border-outline-variant flex justify-between text-xs text-on-surface-variant">
               <div className="flex items-center gap-2">
-                <kbd className="bg-gray-800 px-1.5 py-0.5 rounded border border-gray-700 text-[10px]">
+                <kbd className="bg-surface-container-high px-1.5 py-0.5 rounded border border-outline-variant text-[10px]">
                   Enter
                 </kbd>
                 <span>눌러 이동</span>

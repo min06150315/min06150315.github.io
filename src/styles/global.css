@@ -6,7 +6,7 @@
 
 @layer base {
   body {
-    @apply antialiased text-base-white bg-base-black transition-colors duration-300;
+    @apply antialiased text-on-surface bg-surface transition-colors duration-300;
 
     font-family:
       'Pretendard',

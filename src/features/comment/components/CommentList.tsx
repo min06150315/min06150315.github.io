@@ -20,7 +20,7 @@ const CommentList = ({ postId }: CommentListProps) => {
 
   if (error) {
     return (
-      <div className="text-red-400 text-sm py-5 text-center">
+      <div className="text-error text-sm py-5 text-center">
         댓글을 불러오는데 실패했습니다.
       </div>
     );
@@ -28,7 +28,7 @@ const CommentList = ({ postId }: CommentListProps) => {
 
   return (
     <div className="mt-16 pt-10 border-t border-hover-black">
-      <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
+      <h3 className="text-lg font-bold text-on-surface mb-6 flex items-center gap-2">
         댓글{' '}
         <span className="text-primary text-sm">{comments?.length || 0}</span>
       </h3>

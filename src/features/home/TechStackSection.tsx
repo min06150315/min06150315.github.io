@@ -14,19 +14,19 @@ const TechStackSection = () => {
         {TECH_STACK_ICONS.map((tech) => (
           <div
             key={tech.name}
-            className="group p-8 bg-stitch-surface-container-lowest rounded-2xl flex flex-col items-center justify-center gap-4 transition-all hover:bg-stitch-surface-container-highest hover:-translate-y-1 border border-white/5"
+            className="group p-8 bg-stitch-surface-container-lowest rounded-2xl flex flex-col items-center justify-center gap-4 transition-all hover:bg-stitch-surface-container-highest hover:-translate-y-1 border border-hover-black"
           >
             <div className="w-12 h-12 flex items-center justify-center">
               {tech.icon.startsWith('https') ? (
                 <img
                   src={tech.icon}
                   alt={tech.name}
-                  className="w-10 h-10 object-contain opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all"
+                  className="w-10 h-10 object-contain opacity-60 group-hover:opacity-100 group-hover:scale-120 transition-all"
                 />
               ) : (
                 <Icon
                   icon={tech.icon}
-                  className="text-4xl opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all"
+                  className="text-4xl opacity-60 group-hover:opacity-100 group-hover:scale-120 transition-all"
                 />
               )}
             </div>

@@ -7,7 +7,7 @@ import 'highlight.js/styles/atom-one-dark.css';
 
 const PostViewer = ({ content }: { content: string }) => {
   return (
-    <div className="prose prose-invert max-w-none text-base-middle-gray leading-relaxed text-lg mb-16">
+    <div className="prose prose-invert max-w-none text-on-surface leading-relaxed text-lg mb-16">
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[rehypeHighlight]}

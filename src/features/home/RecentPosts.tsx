@@ -33,18 +33,20 @@ const RecentPosts = () => {
 
   if (isLoading)
     return (
-      <div className="text-center py-20 text-gray-500">Loading insights...</div>
+      <div className="text-center py-20 text-on-surface-variant">
+        Loading insights...
+      </div>
     );
 
   return (
     <section className="w-full max-w-7xl mx-auto px-6 my-32">
       <div className="flex justify-between items-end mb-12">
         <div>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-2">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-on-surface mb-2">
             Recent{' '}
             <span className="text-primary font-mono italic">Insights</span>
           </h2>
-          <p className="text-gray-400">
+          <p className="text-on-surface-variant">
             기술적인 도전과 해결 과정을 기록합니다
           </p>
         </div>
@@ -70,7 +72,7 @@ const RecentPosts = () => {
             className="group"
           >
             <Link to={`/blog/${post.id}`}>
-              <div className="aspect-16/10 overflow-hidden rounded-2xl mb-6 border border-[#333]">
+              <div className="aspect-16/10 overflow-hidden rounded-2xl mb-6 border border-border-muted">
                 {post.thumbnail_image ? (
                   <img
                     src={post.thumbnail_image}
@@ -78,7 +80,7 @@ const RecentPosts = () => {
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center text-[#333] font-bold text-lg select-none">
+                  <div className="w-full h-full flex items-center justify-center text-border-muted font-bold text-lg select-none">
                     {'이미지가 없습니다.'}
                   </div>
                 )}
@@ -86,10 +88,10 @@ const RecentPosts = () => {
               <span className="text-[10px] font-bold uppercase tracking-widest text-sky-400 mb-2 block">
                 {post.category}
               </span>
-              <h3 className="text-[17px] font-bold text-white mb-3 group-hover:text-sky-400 transition-colors">
+              <h3 className="text-[17px] font-bold text-on-surface mb-3 group-hover:text-primary transition-colors">
                 {post.title}
               </h3>
-              <p className="text-gray-400 text-sm line-clamp-2 mb-4">
+              <p className="text-on-surface-variant text-sm line-clamp-2 mb-4">
                 {post.content}
               </p>
             </Link>

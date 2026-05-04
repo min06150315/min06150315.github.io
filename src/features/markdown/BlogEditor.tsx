@@ -9,15 +9,17 @@ const BlogEditor = () => {
   const handleSave = () => {
     // 에디터에 입력된 내용을 마크다운 형식으로 가져오기
     const content = editorRef.current?.getInstance().getMarkdown();
-    console.log("저장할 내용:", content);
-    
+    console.log('저장할 내용:', content);
+
     // 이후 Supabase DB에 저장하는 로직(insert)을 여기에 연결하면 됩니다.
   };
 
   return (
-    <div className="p-4 bg-[#0a0a0a] min-h-screen">
-      <h2 className="text-white text-2xl font-bold mb-6">새 글 작성하기</h2>
-      
+    <div className="p-4 bg-surface-container-lowest min-h-screen">
+      <h2 className="text-on-surface text-2xl font-bold mb-6">
+        새 글 작성하기
+      </h2>
+
       <Editor
         ref={editorRef}
         initialValue="내용을 입력하세요."
@@ -35,9 +37,9 @@ const BlogEditor = () => {
         ]}
       />
 
-      <button 
+      <button
         onClick={handleSave}
-        className="mt-6 px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all font-bold"
+        className="mt-6 px-8 py-3 bg-primary text-on-surface rounded-lg hover:bg-primary-hover transition-all font-bold"
       >
         포스트 등록
       </button>

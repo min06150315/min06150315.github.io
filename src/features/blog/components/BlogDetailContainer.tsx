@@ -33,10 +33,10 @@ const BlogDetailContainer = () => {
       />
       <article className="max-w-3xl mx-auto pb-12 px-4">
         <header className="mb-10">
-          <h1 className="text-4xl font-bold text-base-light-gray mb-4 leading-tight">
+          <h1 className="text-4xl font-bold text-on-surface mb-4 leading-tight">
             {post.title}
           </h1>
-          <div className="flex items-center gap-x-2 text-sm text-more-gray">
+          <div className="flex items-center gap-x-2 text-sm text-on-surface-more">
             <span>{formatRelative(post.created_at)}</span>
           </div>
         </header>

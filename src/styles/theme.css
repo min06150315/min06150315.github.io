@@ -1,62 +1,62 @@
 @theme {
-  --color-less-black: #1a1a1a;
-  --color-base-gray: #a3a3a3;
-  --color-more-gray: #797979;
-  --color-hover-black: #222;
-  --color-primary-hover: #2b7fff;
-  --color-logo-text: #cad5e2;
-  --color-base-blue-gray: #62748e;
-  --color-base-middle-gray: #cad5e2;
-  --color-base-light-gray: #f1f5f9;
-  --color-edit-gray: #ffffff;
+  /* --- 1. 배경 및 컨테이너 (Surface) --- */
+  --color-surface: #181818; /* 기본 배경 */
+  --color-surface-low: #1c1b1b; /* 낮은 강조 (카드 등) */
+  --color-surface-main: #201f1f; /* 중간 강조 */
+  --color-hover-black: #222222; /* 높은 강조 */
+  --color-hover-blackest: #353534; /* 가장 밝은 컨테이너 */
+  --color-surface-variant: #353534; /* 보조 배경 */
 
-  --color-base-black: #181818;
-  --color-base-white: #c5c5c5;
-  --color-surface-container-highest: #353534;
-  --color-primary-container: #4d8eff;
-  --color-surface-variant: #353534;
-  --color-error: #ffb4ab;
-  --color-primary: #adc6ff;
-  --color-on-surface-variant: #c2c6d6;
-  --color-surface-container-lowest: #0e0e0e;
-  --color-surface-container: #201f1f;
-  --color-outline-variant: #424754;
-  --color-surface: #131313;
-  --color-outline: #8c909f;
-  --color-surface-container-low: #1c1b1b;
-  --color-surface-container-high: #2a2a2a;
-  --color-on-surface: #e5e2e1;
+  /* --- 2. 브랜드 및 강조색 (Primary) --- */
+  --color-primary: #adc6ff; /* 메인 강조색 */
+  --color-primary-hover: #2b7fff; /* 호버 상태 */
+  --color-primary-container: #4d8eff; /* 강조 컨테이너 배경 */
+
+  /* --- 3. 텍스트 및 콘텐츠 (On-Surface) --- */
+  --color-on-surface: #c5c5c5; /* 일반 텍스트 */
+  --color-on-surface-variant: #c2c6d6; /* 보조/설명 텍스트 */
+  --color-on-surface-more: #a3a3a3; /* 가장 진한 텍스트 */
+  --color-on-title: #f5f5f5; /* 제목 및 중요한 텍스트 */
+
+  /* --- 4. 경계선 및 외곽선 (Outline) --- */
+  --color-outline: #8c909f; /* 기본 구분선 */
+  --color-outline-variant: #424754; /* 연한 구분선 */
+  --color-border-muted: #333333; /* 아주 연한 경계 */
+
+  /* --- 5. 상태 및 특수 (Status) --- */
+  --color-error: #ffb4ab; /* 에러/경고 */
+  --color-github: #24292f; /* 외부 브랜드 */
+  --color-input: #161616; /* 입력창 전용 */
 }
 
+/* 라이트 모드 (다크모드와 변수명은 동일하게 유지) */
 :root:not(.dark) {
-  --color-surface: #ffffff;
-  --color-surface-container-lowest: #ffffff;
-  --color-surface-container-low: #f7f9fc;
-  --color-surface-container: #f1f5f9;
-  --color-surface-container-high: #e2e8f0;
-  --color-surface-container-highest: #cbd5e1;
-  --color-surface-variant: #e2e8f0;
+  /* --- 1. 배경 및 컨테이너 (Surface) --- */
+  --color-surface: #ffffff; /* 기본 배경 (완전 흰색) */
+  --color-surface-low: #f8fafc; /* 낮은 강조 (아주 연한 회색) */
+  --color-surface-main: #f1f5f9; /* 중간 강조 */
+  --color-hover-black: #e2e8f0; /* 높은 강조 (기존 hover-black 대응) */
+  --color-hover-blackest: #cbd5e1; /* 가장 진한 컨테이너 배경 */
+  --color-surface-variant: #f1f5f9; /* 보조 배경 */
 
-  --color-on-surface: #1a1c1e;
-  --color-on-surface-variant: #44474e;
-  --color-base-white: #1a1c1e;
-  --color-base-black: #f8fafc;
-  --color-logo-text: #334155;
+  /* --- 2. 브랜드 및 강조색 (Primary) --- */
+  --color-primary: #0056fb; /* 메인 강조색 (다크보다 진한 파랑) */
+  --color-primary-hover: #0046cd; /* 호버 상태 */
+  --color-primary-container: #d6e2ff; /* 강조 컨테이너 (연한 파랑 배경) */
 
-  --color-base-gray: #64748b;
-  --color-more-gray: #475569;
-  --color-less-black: #f1f5f9;
-  --color-hover-black: #f1f5f9;
-  --color-base-blue-gray: #475569;
-  --color-base-middle-gray: #94a3b8;
-  --color-base-light-gray: #1e293b;
+  /* --- 3. 텍스트 및 콘텐츠 (On-Surface) --- */
+  --color-on-surface: #1a1c1e; /* 일반 텍스트 (진한 회색/검정) */
+  --color-on-surface-variant: #44474e; /* 보조/설명 텍스트 */
+  --color-on-surface-more: #64748b; /* 더 연한 부가 텍스트 */
+  --color-on-title: #000000; /* 제목 및 중요한 텍스트 */
 
-  --color-primary: #0056fb;
-  --color-primary-container: #d6e2ff;
-  --color-primary-hover: #0046cd;
+  /* --- 4. 경계선 및 외곽선 (Outline) --- */
+  --color-outline: #74777f; /* 기본 구분선 */
+  --color-outline-variant: #c4c6d0; /* 연한 구분선 */
+  --color-border-muted: #e2e8f0; /* 아주 연한 경계 */
 
-  --color-outline: #74777f;
-  --color-outline-variant: #c4c6d0;
-  --color-error: #ba1a1a;
-  --color-edit-gray: #475569;
+  /* --- 5. 상태 및 특수 (Status) --- */
+  --color-error: #ba1a1a; /* 에러/경고 (진한 빨강) */
+  --color-github: #24292f; /* 외부 브랜드 (유지) */
+  --color-input: #f1f5f9; /* 입력창 배경 */
 }
