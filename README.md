@@ -4,7 +4,7 @@
 
 현재까지의 성장 과정을 기록하고 공유하기 위함
 
-Frontend
+## Frontend
 - React
 
 - TypeScript
@@ -19,10 +19,10 @@ Frontend
 
 - react hook form
 
--zod
+- zod
 
 
-Styling
+## Styling
 - Tailwind CSS
 
 - Framer Motion
@@ -33,10 +33,10 @@ Styling
 
 - iconify
 
-Backend & Database
+## Backend & Database
 - Supabase (Database, Auth)
 
-Deployment & Tooling
+##Deployment & Tooling
 - GitHub Pages
 
 - GitHub Actions (CI/CD)
@@ -50,7 +50,7 @@ Deployment & Tooling
 - Prettier
 
 
-Chatbot
+## Chatbot
 - Google Gemini API
 
 - Supabase Edge Function
