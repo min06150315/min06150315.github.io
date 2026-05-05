@@ -7,7 +7,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
-  const env = loadEnv(mode, process.cwd(), '');
+  const env = loadEnv(mode, process.cwd(), 'VITE_');
   return {
     plugins: [
       react(),
@@ -18,6 +18,11 @@ export default defineConfig(({ mode }) => {
     ],
     resolve: {
       alias: [{ find: '@', replacement: path.resolve(__dirname, 'src') }],
+    },
+    define: {
+      'process.env.VITE_SUPABASE_URL': JSON.stringify(env.VITE_SUPABASE_URL),
+      'process.env.VITE_SUPABASE_ANON_KEY': JSON.stringify(env.VITE_SUPABASE_ANON_KEY),
+      'process.env.VITE_ADMIN_EMAIL': JSON.stringify(env.VITE_ADMIN_EMAIL),
     },
     base: env.VITE_APP_BASE_URL || '/',
     build: {
