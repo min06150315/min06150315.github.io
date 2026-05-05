@@ -23,8 +23,7 @@ const ChatBot = () => {
     scrollToBottom();
   }, [messages, isLoading]);
 
-  const SUPABASE_FUNCTION_URL =
-    'https://jzbektkgebxurmpwwxor.supabase.co/functions/v1/chat';
+  const SUPABASE_FUNCTION_URL = import.meta.env.VITE_SUPABASE_FUNCTION_URL;
 
   const handleSend = async (manualPrompt?: string, displayLabel?: string) => {
     const displayText = displayLabel || manualPrompt || input;
