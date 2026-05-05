@@ -10,7 +10,7 @@ const CommingSoonPage = () => {
         <div className="absolute inset-0 bg-blue-500 blur-3xl opacity-20 animate-pulse"></div>
         <Construction
           size={80}
-          className="text-sky-400 relative z-10 animate-bounce"
+          className="text-primary-more relative z-10 animate-bounce"
         />
       </div>
 

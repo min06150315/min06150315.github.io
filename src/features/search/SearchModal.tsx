@@ -138,7 +138,7 @@ const SearchModal = ({
                     `}
                   >
                     <FileText
-                      className="text-gray-500 group-hover:text-sky-400 mr-3"
+                      className="text-gray-500 group-hover:text-primary mr-3"
                       size={18}
                     />
                     <div>
