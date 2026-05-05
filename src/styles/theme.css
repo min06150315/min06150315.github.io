@@ -10,7 +10,9 @@
   /* --- 2. 브랜드 및 강조색 (Primary) --- */
   --color-primary: #adc6ff; /* 메인 강조색 */
   --color-primary-hover: #2b7fff; /* 호버 상태 */
+  --color-primary-more: #8aaeff; /* 더 진한 강조 */
   --color-primary-container: #4d8eff; /* 강조 컨테이너 배경 */
+  --color-primary-text: #1a2b50; /* 강조 텍스트 */
 
   /* --- 3. 텍스트 및 콘텐츠 (On-Surface) --- */
   --color-on-surface: #c5c5c5; /* 일반 텍스트 */

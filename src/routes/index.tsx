@@ -9,7 +9,8 @@ import BlogWritePage from '@/pages/BlogWritePage';
 import BlogEditPage from '@/pages/BlogEditPage';
 // import LoginPage from '@/pages/LoginPage';
 import AdminPage from '@/pages/AdminPage';
-import AboutPage from '@/pages/ContactPage';
+import ContactPage from '@/pages/ContactPage';
+import CommingSoonPage from '@/pages/CommingSoonPage';
 
 const Blog = lazy(() => import('@/pages/BlogListPage'));
 
@@ -29,7 +30,11 @@ export const router = createHashRouter([
       },
       {
         path: 'contact',
-        element: <AboutPage />,
+        element: <ContactPage />,
+      },
+      {
+        path: 'about',
+        element: <CommingSoonPage />,
       },
       // {
       //   path: 'login',
@@ -47,7 +52,6 @@ export const router = createHashRouter([
         path: 'blog/:id',
         element: <BlogDetailPage />,
       },
-
       {
         path: 'admin',
         element: <AdminLayout />,
