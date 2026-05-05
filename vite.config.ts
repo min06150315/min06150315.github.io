@@ -20,5 +20,14 @@ export default defineConfig(({ mode }) => {
       alias: [{ find: '@', replacement: path.resolve(__dirname, 'src') }],
     },
     base: env.VITE_APP_BASE_URL || '/',
+    build: {
+      minify: 'terser',
+      terserOptions: {
+        compress: {
+          drop_console: true,
+          drop_debugger: true,
+        },
+      },
+    }
   };
 });
