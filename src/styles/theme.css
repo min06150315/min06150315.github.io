@@ -57,6 +57,6 @@
 
   /* --- 5. 상태 및 특수 (Status) --- */
   --color-error: #ba1a1a; /* 에러/경고 (진한 빨강) */
-  --color-github: #24292f; /* 외부 브랜드 (유지) */
+  --color-github: #f1f5f9; /* 외부 브랜드 (유지) */
   --color-input: #f1f5f9; /* 입력창 배경 */
 }
