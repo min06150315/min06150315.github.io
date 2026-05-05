@@ -7,7 +7,6 @@ import PostViewer from './PostViewer';
 import SEO from '@/components/common/SEO';
 
 const BlogDetailContainer = () => {
-  // const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
 
   // TODO: ID에 해당하는 게시물이 없으면 404 처리

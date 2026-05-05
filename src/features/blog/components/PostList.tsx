@@ -29,7 +29,6 @@ const PostList = () => {
     );
   }
 
-  // TODO: 게시물이 없을 때 에러 처리
   if (!posts || posts.length == 0) {
     return (
       <div className="flex flex-col items-center justify-center py-20 text-on-surface-variant">

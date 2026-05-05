@@ -7,8 +7,7 @@ const BlogEditor = () => {
   const editorRef = useRef<Editor>(null);
 
   const handleSave = () => {
-    const content = editorRef.current?.getInstance().getMarkdown();
-    console.log('저장할 내용:', content);
+    editorRef.current?.getInstance().getMarkdown();
   };
 
   return (

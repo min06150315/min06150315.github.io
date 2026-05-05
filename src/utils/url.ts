@@ -1,12 +1,6 @@
 export const getInternalPostId = (url: string) => {
   try {
     const urlObj = new URL(url);
-    console.log(
-      'Checking URL:',
-      urlObj.hostname,
-      'Current Host:',
-      window.location.hostname,
-    );
 
     if (urlObj.hostname !== window.location.hostname) {
       return null;

@@ -7,7 +7,7 @@ import HomePage from '@/pages/HomePage';
 import BlogDetailPage from '@/pages/BlogDetailPage';
 import BlogWritePage from '@/pages/BlogWritePage';
 import BlogEditPage from '@/pages/BlogEditPage';
-import LoginPage from '@/pages/LoginPage';
+// import LoginPage from '@/pages/LoginPage';
 import AdminPage from '@/pages/AdminPage';
 import AboutPage from '@/pages/ContactPage';
 
@@ -31,10 +31,10 @@ export const router = createHashRouter([
         path: 'contact',
         element: <AboutPage />,
       },
-      {
-        path: 'login',
-        element: <LoginPage />,
-      },
+      // {
+      //   path: 'login',
+      //   element: <LoginPage />,
+      // },
       {
         path: 'blog',
         element: (
