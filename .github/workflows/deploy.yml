@@ -32,7 +32,10 @@ jobs:
       - name: Build 🚀
         run: pnpm run build
         env:
-          VITE_APP_BASE_URL: /
+          VITE_APP_BASE_URL: ${{ secrets.VITE_APP_BASE_URL }}
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+          VITE_ADMIN_EMAIL: ${{ secrets.VITE_ADMIN_EMAIL }}
 
       - name: Deploy 📂
         uses: JamesIves/github-pages-deploy-action@v4
