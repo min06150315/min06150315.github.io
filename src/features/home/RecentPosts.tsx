@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import supabase from '@/lib/supabase'; // 실제 연동 시 주석 해제
+import supabase from '@/lib/supabase';
 import type { Post } from '@/types';
+import { removeMarkdown } from '@/utils';
 
 const RecentPosts = () => {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -34,7 +35,7 @@ const RecentPosts = () => {
   if (isLoading)
     return (
       <div className="text-center py-20 text-on-surface-variant">
-        Loading insights...
+        Loading posts...
       </div>
     );
 
@@ -43,8 +44,7 @@ const RecentPosts = () => {
       <div className="flex justify-between items-end mb-12">
         <div>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-on-surface mb-2">
-            Recent{' '}
-            <span className="text-primary font-mono italic">Insights</span>
+            Recent <span className="text-primary font-mono italic">Posts</span>
           </h2>
           <p className="text-on-surface-variant">
             기술적인 도전과 해결 과정을 기록합니다
@@ -92,7 +92,7 @@ const RecentPosts = () => {
                 {post.title}
               </h3>
               <p className="text-on-surface-variant text-sm line-clamp-2 mb-4">
-                {post.content}
+                {removeMarkdown(post.content)}
               </p>
             </Link>
           </motion.article>
