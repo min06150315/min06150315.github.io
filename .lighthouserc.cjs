@@ -5,6 +5,9 @@ module.exports = {
       numberOfRuns: 1,
       settings: {
         chromeFlags: '--no-sandbox --disable-setuid-sandbox --headless',
+        emulatedMedia: {
+          features: [{ name: 'prefers-color-scheme', value: 'dark' }],
+        },
       },
     },
     assert: {
