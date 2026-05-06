@@ -2,7 +2,7 @@ name: Lighthouse CI Performance Test
 
 on:
   push:
-    branches-ignore:
+    branches:
       - main
   pull_request:
     branches:
