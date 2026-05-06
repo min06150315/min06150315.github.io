@@ -39,3 +39,26 @@ jobs:
 
       - name: Run Lighthouse CI 📊
         run: npx @lhci/cli@latest autorun
+
+      - name: Format Lighthouse Score
+        run: |
+          REPORT_URL=$(cat .lighthouseci/links.json | jq -r '.[0]')
+
+          echo "## 🚀 Lighthouse 결과" >> $GITHUB_STEP_SUMMARY
+          echo "| Category | Score |" >> $GITHUB_STEP_SUMMARY
+          echo "| --- | --- |" >> $GITHUB_STEP_SUMMARY
+
+          for file in .lighthouseci/lhr-*.json; do
+            PERF=$(jq '.categories.performance.score * 100' $file)
+            ACC=$(jq '.categories.accessibility.score * 100' $file)
+            BP=$(jq '.categories.best_practices.score * 100' $file)
+            SEO=$(jq '.categories.seo.score * 100' $file)
+            
+            echo "| ⚡ Performance | $PERF |" >> $GITHUB_STEP_SUMMARY
+            echo "| ♿ Accessibility | $ACC |" >> $GITHUB_STEP_SUMMARY
+            echo "| 🔒 Best Practices | $BP |" >> $GITHUB_STEP_SUMMARY
+            echo "| 🔍 SEO | $SEO |" >> $GITHUB_STEP_SUMMARY
+          done
+
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "[내 리포트 자세히 보기]($REPORT_URL)" >> $GITHUB_STEP_SUMMARY
