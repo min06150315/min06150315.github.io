@@ -1,7 +1,7 @@
 import { IoMdMail } from 'react-icons/io';
 import { Link } from 'react-router-dom';
 
-const ContactSecton = () => {
+const ContactSection = () => {
   return (
     <section className="max-w-5xl mx-auto px-8 py-40 text-center">
       <span className="text-primary font-mono text-xs tracking-[0.3em] uppercase mb-4 block opacity-80">
@@ -27,4 +27,4 @@ const ContactSecton = () => {
   );
 };
 
-export default ContactSecton;
+export default ContactSection;

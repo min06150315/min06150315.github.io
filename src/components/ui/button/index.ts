@@ -1,2 +1,2 @@
-export * from './NavButton';
+export* from './NavButton';
 export * from './SearchButton';

@@ -3,7 +3,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { useCreateComment } from '@/hooks/useComment';
 import { useAuth } from '@/hooks/useAuth';
-import { NavButton } from '@/components/ui';
+import NavButton from '@/components/ui/button/NavButton';
 import { signInWithGithub } from '@/api/auth';
 import { Github } from 'lucide-react';
 

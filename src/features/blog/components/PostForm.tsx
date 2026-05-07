@@ -3,7 +3,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import type { Post } from '@/types';
 import React, { useEffect, useRef, useState } from 'react';
-import { NavButton } from '@/components/ui';
+import NavButton from '@/components/ui/button/NavButton';
 import { Image, X } from 'lucide-react';
 import { uploadImage } from '@/lib/supabase';
 import { Editor } from '@toast-ui/react-editor';

@@ -12,7 +12,7 @@ interface NavButtonProps {
   className?: string;
 }
 
-export const NavButton = ({
+const NavButton = ({
   children,
   to,
   onClick,
@@ -50,3 +50,5 @@ export const NavButton = ({
     </button>
   );
 };
+
+export default NavButton;
