@@ -45,6 +45,7 @@
   --color-primary: #0056fb; /* 메인 강조색 (다크보다 진한 파랑) */
   --color-primary-hover: #0046cd; /* 호버 상태 */
   --color-primary-container: #d6e2ff; /* 강조 컨테이너 (연한 파랑 배경) */
+  --color-primary-text: #f8f9fa; /* 강조 텍스트 (밝은 회색) */
 
   /* --- 3. 텍스트 및 콘텐츠 (On-Surface) --- */
   --color-on-surface: #1a1c1e; /* 일반 텍스트 (진한 회색/검정) */

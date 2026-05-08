@@ -5,6 +5,8 @@ import Header from './Header';
 import ScrollToTop from '@/utils/ScrollToTop';
 import { useSearchModal } from '@/features/search/useSearchModal';
 import SearchModal from '@/features/search/SearchModal';
+import { ErrorBoundary } from 'react-error-boundary';
+import ErrorFallback from '@/features/error/components/ErrorFallback';
 
 interface MainLayoutProps {
   children?: ReactNode;
@@ -18,7 +20,9 @@ const MainLayout = ({ children }: MainLayoutProps) => {
       <ScrollToTop />
       <Header onSearchOpen={() => setIsOpen(true)} />
       <main className="flex-1 w-full max-w-5xl mx-auto px-4 py-12">
-        {children || <Outlet />}
+        <ErrorBoundary FallbackComponent={ErrorFallback}>
+          {children || <Outlet />}
+        </ErrorBoundary>
       </main>
       <SearchModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
       <Footer />
