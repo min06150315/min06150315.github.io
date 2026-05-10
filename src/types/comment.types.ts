@@ -4,6 +4,7 @@ export interface Comment {
   user_id: string;
   author_name: string;
   author_avatar: string | null;
+  github_id: string | null;
   content: string;
   created_at?: Date;
 }
