@@ -7,6 +7,7 @@ import { useSearchModal } from '@/features/search/useSearchModal';
 import SearchModal from '@/features/search/SearchModal';
 import { ErrorBoundary } from 'react-error-boundary';
 import ErrorFallback from '@/features/error/components/ErrorFallback';
+import NotificationManager from '@/features/popup/NotificationManaget';
 
 interface MainLayoutProps {
   children?: ReactNode;
@@ -26,6 +27,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
       </main>
       <SearchModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
       <Footer />
+      <NotificationManager />
     </div>
   );
 };
