@@ -5,6 +5,7 @@ import { useUpdateComment, useDeleteComment } from '@/hooks/useComment';
 import supabase from '@/lib/supabase';
 import { Pencil, Trash2, X, Check, Loader2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import DeleteConfirmModal from '@/features/modal/DeleteConfirmModal';
 
 interface CommentItemProps {
   comment: Comment;
@@ -14,11 +15,14 @@ const CommentItem = ({ comment }: CommentItemProps) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editContent, setEditContent] = useState(comment.content);
   const [currentUserId, setCurrentUserId] = useState<string | null>(null);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
   const { mutate: updateMutate, isPending: isUpdating } = useUpdateComment(
     comment.post_id,
   );
-  const { mutate: deleteMutate } = useDeleteComment(comment.post_id);
+  const { mutate: deleteMutate, isPending: isDeleting } = useDeleteComment(
+    comment.post_id,
+  );
 
   useEffect(() => {
     const checkUser = async () => {
@@ -30,10 +34,10 @@ const CommentItem = ({ comment }: CommentItemProps) => {
 
   const isAuthor = currentUserId === comment.user_id;
 
-  const handleDelete = (id: string | number) => {
-    if (window.confirm('이 댓글을 정말 삭제하시겠습니까?')) {
-      deleteMutate(Number(id));
-    }
+  const confirmDelete = () => {
+    deleteMutate(Number(comment.id), {
+      onSuccess: () => setIsDeleteModalOpen(false),
+    });
   };
 
   const handleUpdate = (id: string | number) => {
@@ -85,7 +89,7 @@ const CommentItem = ({ comment }: CommentItemProps) => {
                 <Pencil size={14} />
               </button>
               <button
-                onClick={() => handleDelete(comment.id!)}
+                onClick={() => setIsDeleteModalOpen(true)}
                 className="p-1.5 hover:bg-error/10 rounded-md text-on-surface-variant hover:text-error transition-colors"
                 title="삭제"
               >
@@ -139,6 +143,15 @@ const CommentItem = ({ comment }: CommentItemProps) => {
           </p>
         )}
       </div>
+
+      {/* 삭제 확인 모달 추가 */}
+      <DeleteConfirmModal
+        isOpen={isDeleteModalOpen}
+        onClose={() => setIsDeleteModalOpen(false)}
+        onConfirm={confirmDelete}
+        title="댓글 삭제"
+        isPending={isDeleting}
+      />
     </div>
   );
 };

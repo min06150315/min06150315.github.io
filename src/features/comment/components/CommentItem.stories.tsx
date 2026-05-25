@@ -18,6 +18,7 @@ export const Default: Story = {
       user_id: '1',
       author_name: 'KyeongBin Min',
       author_avatar: 'https://avatars.githubusercontent.com/u/143686593?v=4',
+      github_id: 'min06150315',
       content: 'Comment Test',
       created_at: new Date(),
     },

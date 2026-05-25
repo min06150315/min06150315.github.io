@@ -18,14 +18,13 @@ export const getCommentsByPostId = async (postId: number): Promise<Comment[]> =>
         .select("*")
         .eq("post_id", postId)
         .order("created_at", { ascending: true });
-
+        
     if (error) throw new Error(error.message);
     return data as Comment[];
 }
 
 export const createComment = async (postId: number, content: string): Promise<Comment> => {
     const {data: {user} } = await supabase.auth.getUser();
-    console.log("전체 유저 메타데이터:", user?.user_metadata);
     if (!user) throw new Error("로그인이 필요합니다.");
     
     const { data, error } = await supabase
@@ -35,7 +34,7 @@ export const createComment = async (postId: number, content: string): Promise<Co
             user_id: user.id,
             author_name: user.user_metadata.full_name || user.email?.split('@')[0],
             author_avatar: user.user_metadata.avatar_url,
-            github_id: user.user_metadata.user_name,
+            github_id: user.user_metadata.user_name || undefined,
             content, 
         })
         .select("*")
