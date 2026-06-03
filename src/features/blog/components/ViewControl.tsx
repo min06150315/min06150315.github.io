@@ -5,26 +5,26 @@ const ViewControl = () => {
   const { viewMode, setViewMode } = useViewStore();
 
   return (
-    <div className="flex justify-end gap-2 mb-6">
+    <div className="flex justify-end gap-2 mb-0 md:mb-6 shrink-0">
       <button
         onClick={() => setViewMode('grid')}
-        className={`p-2 rounded-md transition-colors ${
+        className={`p-2 rounded-lg transition-colors active:scale-95 ${
           viewMode === 'grid'
             ? 'bg-primary text-surface-low'
-            : 'bg-hover-black text-primary'
+            : 'bg-hover-black text-primary hover:bg-hover-black/80'
         }`}
       >
-        <LayoutGrid size={20} />
+        <LayoutGrid size={18} />
       </button>
       <button
         onClick={() => setViewMode('list')}
-        className={`p-2 rounded-md transition-colors ${
+        className={`p-2 rounded-md transition-colors active:scale-95 ${
           viewMode === 'list'
-            ? 'bg- text-surface-low'
-            : 'bg-hover-black text-primary'
+            ? 'bg-primary text-surface-low'
+            : 'bg-hover-black text-primary hover:bg-hover-black/80'
         }`}
       >
-        <List size={20} />
+        <List size={18} />
       </button>
     </div>
   );

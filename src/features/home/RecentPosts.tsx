@@ -40,19 +40,19 @@ const RecentPosts = () => {
     );
 
   return (
-    <section className="w-full max-w-7xl mx-auto px-6 my-32">
-      <div className="flex justify-between items-end mb-12">
+    <section className="w-full max-w-7xl mx-auto px-4 md:px-6 my-16 md:my-32">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-y-4 mb-8 md:mb-12">
         <div>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-on-surface mb-2">
             Recent <span className="text-primary font-mono italic">Posts</span>
           </h2>
-          <p className="text-on-surface-variant">
+          <p className="text-sm md:text-base text-on-surface-variant">
             기술적인 도전과 해결 과정을 기록합니다
           </p>
         </div>
         <Link
           to="/blog"
-          className="group text-primary flex items-center gap-2 text-xs tracking-widest uppercase font-bold"
+          className="group text-primary flex items-center gap-2 text-xs tracking-widest uppercase font-bold py-1"
         >
           View all posts{' '}
           <ArrowRight
@@ -62,7 +62,7 @@ const RecentPosts = () => {
         </Link>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 lg:gap-8">
         {posts.map((post, index) => (
           <motion.article
             key={post.id}
@@ -72,26 +72,26 @@ const RecentPosts = () => {
             className="group"
           >
             <Link to={`/blog/${post.id}`}>
-              <div className="aspect-16/10 overflow-hidden rounded-2xl mb-6 border border-border-muted">
+              <div className="aspect-16/10 overflow-hidden rounded-2xl mb-4 md:mb-6 border border-border-muted">
                 {post.thumbnail_image ? (
                   <img
                     src={post.thumbnail_image}
                     alt={post.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-700 md:group-hover:scale-105"
                   />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center text-border-muted font-bold text-lg select-none">
+                  <div className="w-full h-full flex items-center justify-center text-border-muted font-bold text-sm md:text-lg select-none bg-surface-variant/20">
                     {'이미지가 없습니다.'}
                   </div>
                 )}
               </div>
-              <span className="text-[10px] font-bold uppercase tracking-widest text-primary mb-2 block">
+              <span className="text-[10px] font-bold uppercase tracking-widest text-primary mb-1 md:mb-2 block">
                 {post.category}
               </span>
-              <h3 className="text-[17px] font-bold text-on-surface mb-3 group-hover:text-primary transition-colors">
+              <h3 className="text-[17px] font-bold text-on-surface mb-2 md:mb-3 group-hover:text-primary transition-colors leading-snug">
                 {post.title}
               </h3>
-              <p className="text-on-surface-variant text-sm line-clamp-2 mb-4">
+              <p className="text-on-surface-variant text-xs md:text-sm line-clamp-2 mb-4">
                 {removeMarkdown(post.content)}
               </p>
             </Link>

@@ -25,9 +25,9 @@ const JourneySection = () => {
   ];
 
   return (
-    <section className="py-20 px-6">
+    <section className="py-16 md:py-20 px-4 md:px-6">
       <div className="max-w-3xl mx-auto">
-        <h2 className="text-4xl font-bold text-on-surface mb-16 tracking-tight">
+        <h2 className="text-3xl md:text-4xl font-bold text-on-surface mb-10 md:mb-16 tracking-tight">
           Journey
         </h2>
 
@@ -39,25 +39,25 @@ const JourneySection = () => {
               key={index}
               initial={{ opacity: 0, x: -10 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.5 }}
-              className="relative pl-8 mb-16 last:mb-0"
+              viewport={{ once: true, amount: 0.2 }}
+              className="relative pl-6 md:pl-8 mb-10 md:mb-16 last:mb-0"
             >
               <div
                 className={`absolute left-[-4.5px] top-1.5 w-2.5 h-2.5 rounded-full border-2 
                 ${index === 1 ? 'bg-primary border-primary shadow-[0_0_8px_rgba(56,189,248,0.6)]' : 'bg-surface border-gray-700'}`}
               />
 
-              <div className="mb-2">
-                <span className="text-sm font-mono text-on-surface-variant tracking-tighter uppercase">
+              <div className="mb-1 md:mb-2">
+                <span className="text-xs md:text-sm font-mono text-on-surface-variant tracking-tighter uppercase">
                   {journey.date}
                 </span>
               </div>
 
               <div>
-                <h3 className="text-xl font-bold text-on-surface mb-1">
+                <h3 className="text-lg md:text-xl font-bold text-on-surface mb-1 leading-snug">
                   {journey.title}
                 </h3>
-                <div className="text-primary/90 text-sm font-medium mb-2">
+                <div className="text-primary/90 text-xs md:text-sm font-medium leading-relaxed">
                   {journey.subtitle}
                 </div>
               </div>

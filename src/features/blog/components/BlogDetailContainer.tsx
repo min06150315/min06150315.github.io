@@ -30,18 +30,18 @@ const BlogDetailContainer = () => {
         description={post.content.slice(0, 150).replace(/[#*`]/g, '')}
         image={post.thumbnail_image as string}
       />
-      <article className="max-w-3xl mx-auto pb-12 px-4">
-        <header className="mb-10">
-          <h1 className="text-4xl font-bold text-on-surface mb-4 leading-tight">
+      <article className="max-w-3xl mx-auto pt-6 md:pt-12 pb-12 md:pb-20 px-4">
+        <header className="mb-6 md:mb-10">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-on-surface mb-3 md:mb-4 leading-tight break-keep">
             {post.title}
           </h1>
-          <div className="flex items-center gap-x-2 text-sm text-on-surface-more">
+          <div className="flex items-center text-xs md:text-sm text-on-surface-more">
             <span>{formatRelative(post.created_at)}</span>
           </div>
         </header>
 
         {post.thumbnail_image ? (
-          <div className="relative aspect-video h-full mb-6">
+          <div className="relative aspect-video w-full mb-6 md:mb-10 rounded-xl overflow-hidden shadow-md">
             <img
               src={post.thumbnail_image}
               alt={post.title}
@@ -54,7 +54,7 @@ const BlogDetailContainer = () => {
 
         <PostViewer content={post.content} />
 
-        <section id="comments">
+        <section id="comments" className="mt-12 md:mt-16">
           <CommentList postId={numericPostId} />
         </section>
       </article>

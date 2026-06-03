@@ -14,7 +14,7 @@ const Header = ({ onSearchOpen }: NavbarProps) => {
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
-// 데스크탑용 헤더 스타일
+  // 데스크탑용 헤더 스타일
   const navLinkStyle = ({ isActive }: { isActive: boolean }) =>
     `transition-all duration-300 active:scale-95 ${
       isActive

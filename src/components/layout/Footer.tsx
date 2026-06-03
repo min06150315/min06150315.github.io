@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="w-full border-t border-hover-black py-12">
+    <footer className="w-full border-t border-hover-black py-8 md:py-12">
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-y-4 px-4">
-        <p className="text-sm text-on-surface-variant">
+        <p className="text-sm text-on-surface-variant text-center md:text-left">
           © 2026 mindev. All rights reserved.
         </p>
         <address className="not-italic text-center md:text-right text-on-surface-variant text-xs leading-relaxed">
@@ -38,7 +38,7 @@ const Footer = () => {
           </p>
           <p>
             Design by{' '}
-            <span className="text-on-surface-variant\">
+            <span className="text-on-surface-variant">
               <Link
                 className="hover:text-primary"
                 to="https://stitch.withgoogle.com/"

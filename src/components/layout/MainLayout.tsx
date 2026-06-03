@@ -17,10 +17,10 @@ const MainLayout = ({ children }: MainLayoutProps) => {
   const { isOpen, setIsOpen } = useSearchModal();
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col overflow-x-hidden">
       <ScrollToTop />
       <Header onSearchOpen={() => setIsOpen(true)} />
-      <main className="flex-1 w-full max-w-5xl mx-auto px-4 py-12">
+      <main className="flex-1 w-full max-w-5xl mx-auto px-4 py-6 md:py-12">
         <ErrorBoundary FallbackComponent={ErrorFallback}>
           {children || <Outlet />}
         </ErrorBoundary>

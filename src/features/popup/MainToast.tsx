@@ -79,7 +79,7 @@ const MainToast = () => {
 
               <div className="flex items-center gap-3">
                 <Link
-                  to={`/posts/${latestPost.id}`}
+                  to={`/blog/${latestPost.id}`}
                   className="flex items-center gap-1.5 text-xs font-bold text-primary hover:underline underline-offset-4"
                   onClick={() => setIsVisible(false)}
                 >

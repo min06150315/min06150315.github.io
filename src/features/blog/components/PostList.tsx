@@ -21,9 +21,13 @@ const PostList = () => {
 
   if (showSkeleton) {
     return (
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className={
+        viewMode === 'grid'
+          ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8'
+          : 'flex flex-col gap-4'
+      }>
         {Array.from({ length: 6 }).map((_, index) => (
-          <PostSkeleton key={index} />
+          <PostSkeleton key={index} viewMode={viewMode} />
         ))}
       </div>
     );
@@ -31,8 +35,8 @@ const PostList = () => {
 
   if (!posts || posts.length == 0) {
     return (
-      <div className="flex flex-col items-center justify-center py-20 text-on-surface-variant">
-        <p className="text-lg">아직 작성된 게시물이 없습니다.</p>
+      <div className="flex flex-col items-center justify-center py-24 text-on-surface-variant/70">
+        <p className="text-base md:text-lg font-medium">아직 작성된 게시물이 없습니다.</p>
       </div>
     );
   }
@@ -42,7 +46,7 @@ const PostList = () => {
     <div
       className={
         viewMode === 'grid'
-          ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'
+          ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8'
           : 'flex flex-col gap-4'
       }
     >
